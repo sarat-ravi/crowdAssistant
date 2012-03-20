@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :jobs
-  has_many :transactions
+  #has_many :jobs, :transactions
   #has_one :profile
   
   def self.create_with_omniauth(auth)
