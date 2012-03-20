@@ -1,0 +1,23 @@
+<h1>Listing assistants</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @assistants.each do |assistant| %>
+  <tr>
+    <td><%= assistant.type %></td>
+    <td><%= link_to 'Show', assistant %></td>
+    <td><%= link_to 'Edit', edit_assistant_path(assistant) %></td>
+    <td><%= link_to 'Destroy', assistant, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Assistant', new_assistant_path %>

@@ -1,0 +1,2 @@
+module MobworkersHelper
+end
