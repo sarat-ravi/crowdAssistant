@@ -1,29 +1,20 @@
-<h1>Listing users</h1>
+<h1><%= @user.name %></h1>
+
+<%= image_tag @user.profile.pic_url, :alt=>@user.name %>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>Ccn</th>
-    <th>Ipaddr</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @users.each do |user| %>
   <tr>
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
-    <td><%= user.ccn %></td>
-    <td><%= user.ipaddr %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= @user.name %></td>
+    <td><%= @user.email %></td>
   </tr>
-<% end %>
+  <%= link_to "View Profile", profile_path %>
 </table>
-
 <br />
-
-<%= link_to 'New User', new_user_path %>

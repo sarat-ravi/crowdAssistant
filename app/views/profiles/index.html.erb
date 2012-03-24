@@ -1,4 +1,4 @@
-<h1>Listing profiles</h1>
+<h1><%= current_user.name %>'s Profile</h1>
 
 <table>
   <tr>
@@ -12,22 +12,15 @@
     <th></th>
     <th></th>
   </tr>
-
-<% @profiles.each do |profile| %>
   <tr>
-    <td><%= profile.user_id %></td>
-    <td><%= profile.age %></td>
-    <td><%= profile.gender %></td>
-    <td><%= profile.pic_url %></td>
-    <td><%= profile.address %></td>
-    <td><%= profile.phonenum %></td>
-    <td><%= link_to 'Show', profile %></td>
-    <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-    <td><%= link_to 'Destroy', profile, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= @profile.user_id %></td>
+    <td><%= @profile.age %></td>
+    <td><%= @profile.gender %></td>
+    <td><%= @profile.pic_url %></td>
+    <td><%= @profile.address %></td>
+    <td><%= @profile.phonenum %></td>
+    <td><%= link_to 'Edit', edit_profile_path %></td>
   </tr>
-<% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Profile', new_profile_path %>

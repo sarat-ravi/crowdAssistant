@@ -7,14 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if current_user %>
-  Welcome <%= current_user.name %>!
-  <%= link_to "Sign Out", signout_path %>
-<% else %>
-  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
-<% end %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="/">Crowd Assistant</a>
+      <% if current_user %>
+          Signed in as <%= link_to(current_user.name, "/user")%>!
+          <%= link_to "Sign Out", signout_path %>
+      <% else %>
+          <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook") %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<%= yield %>
-
+<div class="span9"><%= yield %></div>
 </body>
 </html>

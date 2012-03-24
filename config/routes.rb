@@ -15,9 +15,14 @@ CrowdAssistant::Application.routes.draw do
   resources :users
   
   root :to => 'home#index'
+
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/signout', :to => "sessions#destroy", :as => :signout
-  
+  match '/user', :to => "users#index", :as => :user
+  match '/profile', :to => "profiles#index", :as => :profile
+  match '/profile/edit', :to=>"profiles#edit", :as => :edit_profile
+  match '/profile/update', :to=>"profiles#update", :as => :update_profile
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
