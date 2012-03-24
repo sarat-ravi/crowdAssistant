@@ -19,14 +19,6 @@ ActiveRecord::Schema.define(:version => 20120320093157) do
     t.datetime "updated_at"
   end
 
-  create_table "jobs", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "assistant_id"
-    t.datetime "job_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "mobworkers", :force => true do |t|
     t.string   "api_id"
     t.integer  "assistant_id"

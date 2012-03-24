@@ -1,18 +1,5 @@
 CrowdAssistant::Application.routes.draw do
 
-  resources :tasks
-
-  resources :mobworkers
-
-  resources :assistants
-
-  resources :jobs
-
-  resources :transactions
-
-  resources :profiles
-
-  resources :users
   
   root :to => 'home#index'
 
@@ -22,6 +9,19 @@ CrowdAssistant::Application.routes.draw do
   match '/profile', :to => "profiles#index", :as => :profile
   match '/profile/edit', :to=>"profiles#edit", :as => :edit_profile
   match '/profile/update', :to=>"profiles#update", :as => :update_profile
+  match '/tasks', :to => "tasks#index", :as => :tasks
+
+  resources :tasks
+
+  resources :mobworkers
+
+  resources :assistants
+
+  resources :transactions
+
+  resources :profiles
+
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

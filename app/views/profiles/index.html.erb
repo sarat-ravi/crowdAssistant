@@ -8,9 +8,6 @@
     <th>Pic url</th>
     <th>Address</th>
     <th>Phonenum</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
   <tr>
     <td><%= @profile.user_id %></td>
@@ -19,8 +16,7 @@
     <td><%= @profile.pic_url %></td>
     <td><%= @profile.address %></td>
     <td><%= @profile.phonenum %></td>
-    <td><%= link_to 'Edit', edit_profile_path %></td>
   </tr>
 </table>
-
+<%= link_to 'Edit', edit_profile_path %>
 <br />

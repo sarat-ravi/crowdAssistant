@@ -1,3 +1,4 @@
 class Assistant < ActiveRecord::Base
-  has_many :jobs, :mobworkers
+  has_many :tasks
+  has_many :mobworkers
 end

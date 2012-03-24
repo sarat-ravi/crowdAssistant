@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :jobs
+  has_many :tasks
   has_many :transactions
   has_one :profile
   
