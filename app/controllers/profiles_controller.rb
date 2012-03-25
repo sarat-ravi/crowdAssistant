@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
     @profile = current_user.profile
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @profiles }
+      format.json { render json: @profile }
     end
   end
 
