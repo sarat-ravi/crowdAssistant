@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Job</th>
     <th>Task date</th>
+    <th>Task</th>
     <th>Status</th>
     <th>Response</th>
     <th></th>
@@ -13,8 +13,8 @@
 
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= task.job_id %></td>
     <td><%= task.task_date %></td>
+    <td><%= task.task %></td>
     <td><%= task.status %></td>
     <td><%= task.response %></td>
     <td><%= link_to 'Show', task %></td>

@@ -40,8 +40,9 @@ ActiveRecord::Schema.define(:version => 20120320093157) do
   end
 
   create_table "tasks", :force => true do |t|
-    t.integer  "job_id"
+    t.integer  "user_id"
     t.datetime "task_date"
+    t.string   "task"
     t.string   "status"
     t.string   "response"
     t.datetime "created_at"

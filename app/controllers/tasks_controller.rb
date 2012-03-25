@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,6 +40,10 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
+    print "--------------------------------"
+    print params
+    print params[:task]
+    print "--------------------------------"
     @task = Task.new(params[:task])
 
     respond_to do |format|

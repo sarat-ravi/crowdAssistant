@@ -12,12 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :job_id %><br />
-    <%= f.number_field :job_id %>
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
   </div>
   <div class="field">
     <%= f.label :task_date %><br />
     <%= f.datetime_select :task_date %>
+  </div>
+  <div class="field">
+    <%= f.label :task %><br />
+    <%= f.text_field :task %>
   </div>
   <div class="field">
     <%= f.label :status %><br />
