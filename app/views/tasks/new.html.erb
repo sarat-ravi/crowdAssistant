@@ -1,5 +1,17 @@
 <h1>New task</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
+
+<%#= link_to 'Back', tasks_path %>
+
+<%= form_for @task, :url => { :action => "create" }, :html => {:class => "well"} do |f| %>
+  <h5>Enter task</h5>
+  <%= f.text_field :task, :class => "span3" %>
+  <br>
+  <h5>Finish By</h5>
+  <%= f.date_select :task_date, :class => "span1" %>
+  <br>
+  <%= f.submit "Create Task" %>
+<% end %>
 
 <%= link_to 'Back', tasks_path %>

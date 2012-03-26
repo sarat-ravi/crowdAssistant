@@ -45,6 +45,11 @@ class TasksController < ApplicationController
     print params[:task]
     print "--------------------------------"
     @task = Task.new(params[:task])
+    @task.user_id = current_user.id
+    @task.status = "Not Started"
+    @task.response = nil
+    @task.created_at = Time.now
+    @task.updated_at = nil
 
     respond_to do |format|
       if @task.save
