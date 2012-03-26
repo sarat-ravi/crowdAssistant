@@ -2,4 +2,9 @@
 <p>Let the world work for you</p>
 <p>&nbsp</p>
 <h4 id=notice><%=@welcome_message%></h4>
+<% if current_user.nil? == false %>
+  <%= link_to '- View User Profile', user_path %>
+  <br>
+  <%= link_to '- View Tasks', tasks_path %>
+<% end %>
 

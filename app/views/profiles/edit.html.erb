@@ -1,5 +1,32 @@
 <h1>Editing profile</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
+
+<%#= link_to 'Back', profile_path %>
+
+<%= form_for @profile, :url => { :action => "update" }, :html => {:class => "well"} do |f| %>
+  <h5>Age</h5>
+  <%= f.text_field :age, :class => "span1" %>
+  <br>
+  <h5>Gender</h5>
+  <%= f.text_field :gender, :class => "span1" %>
+  <br>
+  <h5>Picture Url</h5>
+  <%= f.text_field :pic_url, :value => current_user.profile.pic_url, :class => "span3" %>
+  
+  <br>
+  <h5>Address</h5>
+  <%= f.text_field :address, :class => "span3" %>
+
+  <br>
+  <h5>Phone Number</h5>
+  <%= f.telephone_field :phonenum %>
+  
+  <%= f.text_field :updated_at, :value => Time.now, :type => "hidden" %>
+  <br>
+
+  <%= f.submit "Update Profile" %>
+
+<% end %>
 
 <%= link_to 'Back', profile_path %>

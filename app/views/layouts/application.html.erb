@@ -16,12 +16,26 @@
         <span class="icon-bar"></span>
       </a>
       <a class="brand" href="/">Crowd Assistant</a>
-      <% if current_user %>
-          Signed in as <%= link_to(current_user.name, "/user")%>!
-          <%= link_to "Sign Out", signout_path %>
-      <% else %>
-          <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook") %>
-      <% end %>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="active"><a href="<%= root_path %>">Home</a></li>
+          <% if current_user %>
+            <li><a href="<%= user_path %>">Profile</a></li>
+            <li><a href="<%= tasks_path %>">Tasks</a></li>
+          <% else %>
+          <% end %>
+
+        </ul>
+      </div>
+
+      <div style="margin-top:8px; float:right">
+        <% if current_user %>
+            Signed in as <%= link_to(current_user.name, "/user")%>!
+            <%= link_to "Sign Out", signout_path %>
+        <% else %>
+            <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook") %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

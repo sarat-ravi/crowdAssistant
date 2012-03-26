@@ -1,16 +1,14 @@
 <h1><%= current_user.name %>'s Profile</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
-    <th>User</th>
     <th>Age</th>
     <th>Gender</th>
     <th>Pic url</th>
     <th>Address</th>
-    <th>Phonenum</th>
+    <th>Phone Number</th>
   </tr>
   <tr>
-    <td><%= @profile.user_id %></td>
     <td><%= @profile.age %></td>
     <td><%= @profile.gender %></td>
     <td><%= @profile.pic_url %></td>
