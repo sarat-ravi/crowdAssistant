@@ -237,6 +237,7 @@ DEPENDENCIES
   database_cleaner
   haml
   jquery-rails
+  json
   launchy
   omniauth
   omniauth-facebook
