@@ -12,11 +12,18 @@ describe MobileworksApi do
       taskUriJson = '{"Location":"' + @@taskUri + '"}'
       MobileworksApi.stub(:get_response).and_return(taskUriJson)
 
-      @task_uri = MobileworksApi.post_task("instructions lol", "fields lol")
+      @task_uri = MobileworksApi.post_task({:instructions=>"How to write rpsec tests for files in lib dir", :fields=>[{:name=>"t"}], :resource=>"http://www.mobileworks.com/developers/images/samplecard.jpg"})
       @task_uri.should == @@taskUri.gsub("http:","https:") 
 
     end
+
+    it "should raise exception if missing mandatory params" do
+      lambda{MobileworksApi.post_task({:fields=>[{:name=>"t"}], 
+        :resource=>"http://www.mobileworks.com/developers/images/samplecard.jpg"})}.should raise_error(ArgumentError)
+    end
+
   end
+
   describe "#retrieve_task" do
     it "should retrieve the task given by task uri" do
       @@taskUri = @@taskUri.gsub("http:","https:") 
