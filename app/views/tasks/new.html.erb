@@ -1,40 +1,5 @@
 <h1>New task</h1>
 
-<%#= render 'form' %>
-
-<%#= link_to 'Back', tasks_path %>
-
-<%= form_for @task, :url => { :action => "create" }, :html => {:class => "well"} do |f| %>
-  <h5>Enter task</h5>
-  <%= f.text_field :instructions, :class => "span3" %>
-  <br>
-
-  <h5>Resource (optional)</h5>
-  <%= f.text_field :resource, :class => "span3" %>
-  <br>
-
-  <h5>Resource TYpe</h5>
-  <%= f.select :resourcetype, options_for_select(["Select Option","Text","Image","Link","Audio","Video"],"Select Option"), :class => "span3" %>
-  
-  <br>
-  
-  <h5>Priority</h5>
-  <%= f.select :priority, options_for_select(["Select Priority", "Low","Medium","High"], "Select Priority"), :class => "span3" %>
-  <br>
-
-  <h5>Workflow</h5>
-  <%= f.select :workflow, options_for_select(["Select Workflow", "Parallel","Iterative","Survey"],"Select Workflow"), :class => "span3" %>
-  <br>
-
-  <h5>Redundancy</h5>
-  <%= f.number_field :redundancy, :min => 1, :class => "span3" %>
-  <br>
-
-  <h5>Fields</h5>
-  <%= f.text_field :fields, :class => "span3" %>
-  <br>
-
-  <%= f.submit "Create Task" %>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', tasks_path %>

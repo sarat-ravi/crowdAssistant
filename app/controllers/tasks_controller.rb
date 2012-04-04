@@ -40,16 +40,19 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    print "--------------------------------"
-    print params
-    print params[:task]
-    print "--------------------------------"
+
     @task = Task.new(params[:task])
     @task.user_id = current_user.id
     @task.status = "Not Started"
-    @task.response = nil
-    @task.created_at = Time.now
-    @task.updated_at = nil
+    @task.answer = nil
+    @task.resource = params[:task][:resource]
+    @task.resourcetype = params[:task][:resourcetype][0].chr.swapcase
+    prioritys = {"Low" => 1, "Medium" => 2, "High" => 3}
+    @task.priority = prioritys[params[:task][:priority]]
+    @task.workflow = params[:task][:workflow][0].chr.swapcase
+    @task.redundancy = params[:task][:redundancy].to_i
+    @task.instructions = params[:task][:instructions]
+    @task.fields = params[:task][:fields]
 
     respond_to do |format|
       if @task.save

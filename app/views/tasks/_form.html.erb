@@ -1,37 +1,32 @@
-<%= form_for(@task) do |f| %>
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+<%= form_for @task, :url => { :action => "create" }, :html => {:class => "well"} do |f| %>
+  <h5>Enter task</h5>
+  <%= f.text_field :instructions, :class => "span3" %>
+  <br>
 
-      <ul>
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <h5>Resource (optional)</h5>
+  <%= f.text_field :resource, :class => "span3" %>
+  <br>
 
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :task_date %><br />
-    <%= f.datetime_select :task_date %>
-  </div>
-  <div class="field">
-    <%= f.label :task %><br />
-    <%= f.text_field :task %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :response %><br />
-    <%= f.text_field :response %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <h5>Resource TYpe</h5>
+  <%= f.select :resourcetype, options_for_select(["Text","Image","Link","Audio","Video"],"Text"), :class => "span3" %>
+  
+  <br>
+  
+  <h5>Priority</h5>
+  <%= f.select :priority, options_for_select(["Low","Medium","High"], "Medium"), :class => "span3" %>
+  <br>
+
+  <h5>Workflow</h5>
+  <%= f.select :workflow, options_for_select(["Parallel","Iterative","Survey"],"Parallel"), :class => "span3" %>
+  <br>
+
+  <h5>Redundancy</h5>
+  <%= f.number_field :redundancy, :min => 1, :class => "span3" %>
+  <br>
+
+  <h5>Fields</h5>
+  <%= f.text_field :fields, :class => "span3" %>
+  <br>
+
+  <%= f.submit "Create Task" %>
 <% end %>
