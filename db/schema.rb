@@ -42,9 +42,15 @@ ActiveRecord::Schema.define(:version => 20120320093157) do
   create_table "tasks", :force => true do |t|
     t.integer  "user_id"
     t.datetime "task_date"
-    t.string   "task"
     t.string   "status"
-    t.string   "response"
+    t.string   "answer"
+    t.string   "resource"
+    t.string   "resourcetype"
+    t.integer  "priority",     :default => 1
+    t.string   "workflow",     :default => "p"
+    t.integer  "redundancy",   :default => 2
+    t.string   "instructions"
+    t.string   "fields"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

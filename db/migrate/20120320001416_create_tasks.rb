@@ -3,9 +3,15 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.integer :user_id
       t.datetime :task_date
-      t.string :task
       t.string :status
-      t.string :response
+      t.string :answer
+      t.string :resource
+      t.string :resourcetype
+      t.integer :priority, :default => 1
+      t.string :workflow, :default => "p"
+      t.integer :redundancy, :default => 2
+      t.string :instructions
+      t.string :fields
 
       t.timestamps
     end
