@@ -1,6 +1,8 @@
-<h1>Editing task</h1>
+<h1 id="heading1">Editing task</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+<div class="padded dark_shadow rounded links">
+  <%= link_to 'Show', @task %> |
+  <%= link_to 'Back', tasks_path %>
+</div>

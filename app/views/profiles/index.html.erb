@@ -1,6 +1,6 @@
-<h1><%= current_user.name %>'s Profile</h1>
+<h1 id="heading1"><%= current_user.name %>'s Profile</h1>
 
-<table class="table table-striped">
+<table class="table padded">
   <tr>
     <th>Age</th>
     <th>Gender</th>
@@ -16,5 +16,7 @@
     <td><%= @profile.phonenum %></td>
   </tr>
 </table>
+<div class="rounded dark_shadow links padded">
 <%= link_to 'Edit', edit_profile_path %>
+</div>
 <br />

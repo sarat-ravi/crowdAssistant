@@ -1,44 +1,48 @@
+<h1 id="heading1">Task</h1>
 <p id="notice"><%= notice %></p>
 
-
-<p>
-  <b>Task started:</b>
-  <%= @task.task_date %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @task.status %>
-</p>
-
-<p>
-  <b>Response:</b>
-  <%= @task.answer %>
-</p>
-
-<p>
-  <b>Resource:</b>
-  <%= @task.resource %>
-</p>
-<p>
-  <b>Resource Type:</b>
-  <%= @task.resourcetype %>
-</p>
-<p>
-  <b>Priority:</b>
-  <%= @task.priority %>
-</p>
-<p>
-  <b>Workflow:</b>
-  <%= @task.workflow %>
-</p>
-<p>
-  <b>Redundancy:</b>
-  <%= @task.redundancy %>
-</p>
-<p>
-  <b>Instructions:</b>
-  <%= @task.instructions %>
-</p>
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<div class="padded">
+  <p>
+    <b>Task started:</b>
+    <%= @task.task_date %>
+  </p>
+  
+  <p>
+    <b>Status:</b>
+    <%= @task.status %>
+  </p>
+  
+  <p>
+    <b>Answer:</b>
+    <%= @task.answer %>
+  </p>
+  
+  <p>
+    <b>Resource:</b>
+    <%= @task.resource %>
+  </p>
+  <p>
+    <b>Resource Type:</b>
+    <%= @task.resourcetype %>
+  </p>
+  <p>
+    <b>Priority:</b>
+    <%= @task.priority %>
+  </p>
+  <p>
+    <b>Workflow:</b>
+    <%= @task.workflow %>
+  </p>
+  <p>
+    <b>Redundancy:</b>
+    <%= @task.redundancy %>
+  </p>
+  <p>
+    <b>Instructions:</b>
+    <%= @task.instructions %>
+  </p>
+</div>
+<div class="dark_shadow links rounded padded">
+  <%= link_to 'Edit', edit_task_path(@task) %> |
+  <%= link_to 'Back', tasks_path %>
+</div>

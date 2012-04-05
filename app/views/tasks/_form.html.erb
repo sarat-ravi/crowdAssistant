@@ -1,32 +1,32 @@
-<%= form_for @task, :url => { :action => "create" }, :html => {:class => "well"} do |f| %>
-  <h5>Enter task</h5>
-  <%= f.text_field :instructions, :class => "span3" %>
-  <br>
-
-  <h5>Resource (optional)</h5>
-  <%= f.text_field :resource, :class => "span3" %>
-  <br>
-
-  <h5>Resource TYpe</h5>
-  <%= f.select :resourcetype, options_for_select(["Text","Image","Link","Audio","Video"],"Text"), :class => "span3" %>
+<div>
+  <%= form_for @task, :url => { :action => "create" }, :html => {:id => ""} do |f| %>
+    <h5>Enter task</h5>
+    <%= f.text_field :instructions, :class => "span3" %>
+    <br>
   
-  <br>
+    <h5>Resource (optional)</h5>
+    <%= f.text_field :resource, :class => "span3" %>
+    <br>
   
-  <h5>Priority</h5>
-  <%= f.select :priority, options_for_select(["Low","Medium","High"], "Medium"), :class => "span3" %>
-  <br>
-
-  <h5>Workflow</h5>
-  <%= f.select :workflow, options_for_select(["Parallel","Iterative","Survey"],"Parallel"), :class => "span3" %>
-  <br>
-
-  <h5>Redundancy</h5>
-  <%= f.number_field :redundancy, :min => 1, :class => "span3" %>
-  <br>
-
-  <h5>Fields</h5>
-  <%= f.text_field :fields, :class => "span3" %>
-  <br>
-
-  <%= f.submit "Create Task" %>
-<% end %>
+    <h5>Resource Type</h5>
+    <%= f.select :resourcetype, options_for_select(["Text","Image","Link","Audio","Video"],"Text"), :class => "span3" %>
+    
+    
+    <h5>Priority</h5>
+    <%= f.select :priority, options_for_select(["Low","Medium","High"], "Medium"), :class => "span3" %>
+  
+    <h5>Workflow</h5>
+    <%= f.select :workflow, options_for_select(["Parallel","Iterative","Survey"],"Parallel"), :class => "span3" %>
+    <br>
+  
+    <h5>Redundancy</h5>
+    <%= f.number_field :redundancy, :min => 1, :class => "span3" %>
+    <br>
+  
+    <h5>Fields</h5>
+    <%= f.text_field :fields, :class => "span3" %>
+    <br>
+  
+    <%= f.submit "Create Task" %>
+  <% end %>
+</div>
