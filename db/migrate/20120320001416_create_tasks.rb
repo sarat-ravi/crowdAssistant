@@ -12,6 +12,7 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :redundancy, :default => 2
       t.string :instructions
       t.string :fields
+      t.string :mob_task_id
 
       t.timestamps
     end
