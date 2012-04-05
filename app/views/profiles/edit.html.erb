@@ -1,10 +1,10 @@
-<h1>Editing profile</h1>
+<h1 id="heading1">Editing profile</h1>
 
 <%#= render 'form' %>
 
 <%#= link_to 'Back', profile_path %>
 
-<%= form_for @profile, :url => { :action => "update" }, :html => {:class => "well"} do |f| %>
+<%= form_for @profile, :url => { :action => "update" }, :html => {:class => ""} do |f| %>
   <h5>Age</h5>
   <%= f.text_field :age, :class => "span1" %>
   <br>
@@ -29,4 +29,6 @@
 
 <% end %>
 
-<%= link_to 'Back', profile_path %>
+<div class="padded rounded dark_shadow links">
+  <%= link_to 'Back', profile_path %>
+</div>

@@ -1,23 +1,28 @@
-<h1><%= @user.name %></h1>
+<h1 id="heading1"><%= @user.name %></h1>
 
-<%= image_tag @user.profile.pic_url, :alt=>@user.name %>
+<%= image_tag @user.profile.pic_url, :alt=>@user.name, :id=>"float_left", :class=>"rounded margined" %>
 
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr>
-    <td><%= @user.name %></td>
-    <td><%= @user.email %></td>
-  </tr>
-  </br>
-  </br>
-  <%= link_to "View Full Profile", profile_path %> </br>
-  <%= link_to "View Tasks", tasks_path %>
-
-</table>
+<div id="float_left">
+  <table class="table padded">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= @user.name %></td>
+      <td><%= @user.email %></td>
+    </tr>
+    </br>
+    </br>
+  
+  </table>
+  
+  <div class="padded rounded links dark_shadow">
+    <%= link_to "View Full Profile", profile_path %> </br>
+    <%= link_to "View Tasks", tasks_path %>
+  </div>
+</div>
 <br />
