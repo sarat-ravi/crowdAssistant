@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     p user
     if not user
       user = User.create_with_omniauth(auth)
-      #UserMailer.welcome_email(user).deliver
+      UserMailer.welcome_email(user).deliver
     end
     p user
     pic_url = auth["info"]["image"].sub!(/type=square/, 'type=large')
