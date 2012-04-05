@@ -55,7 +55,9 @@ class TasksController < ApplicationController
     @task.fields = params[:task][:fields]
 
     respond_to do |format|
+      a = Assistant.new
       if @task.save
+        a.handle(@task)
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else

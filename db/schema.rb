@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20120320093157) do
     t.integer  "redundancy",   :default => 2
     t.string   "instructions"
     t.string   "fields"
+    t.string   "mob_task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

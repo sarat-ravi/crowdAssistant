@@ -4,41 +4,57 @@ require 'json'
 class MobileworksApi
   #TODO: DRY out code by giving get_response() more responsibilities
 
-  def self.post_task(params={})
+  def self.post_task(task)
+    filtered_hash={}
+
+    filtered_hash["instructions"] = task.instructions
+    filtered_hash["fields"] = task.fields
+    filtered_hash["resource"] = task.resource
+    filtered_hash["resourcetype"] = task.resourcetype
+    filtered_hash["priority"] = task.priority
+    filtered_hash["workflow"] = task.workflow
+    filtered_hash["redundancy"] = task.redundancy
+
+    task_hash=filtered_hash
     
-    #converts ALL params to JSON. instructions and fields are mandatory, and therefore not part of a hash
-    #params = {:instructions=>instructions, :fields=>fields}
-    #params = params.merge(options)    
-    raise( ArgumentError, "Params doesn't contain mandatory arguments") unless params.has_key?(:instructions) and params.has_key?(:fields)
+    
+    #converts ALL task_hash to JSON. instructions and fields are mandatory, and therefore not part of a hash
+    #task_hash = {:instructions=>instructions, :fields=>fields}
+    #task_hash = task_hash.merge(options)    
+    raise( ArgumentError, "task_hash doesn't contain mandatory arguments") unless task_hash.has_key?("instructions") and task_hash.has_key?("fields")
     begin
-      params_json = params.to_json
+      task_hash_json = task_hash.to_json
     rescue
       raise "Malformed Parameters Hash for post_task"
     end
     
-    # curl to mobileworks with the params_json
+    # curl to mobileworks with the task_hash_json
     begin
-      query = 'curl --data \'' + params_json + '\' https://work.mobileworks.com/api/v2/task/ -u crowd_ass:cs169'
+      query = "curl --data '" + task_hash_json +
+        "' https://work.mobileworks.com/api/v2/task/ -u CrowdAssistant:CrowdAss"
+      query = query.gsub("\\","")
+      query = query.gsub("\"[","[")
+      query = query.gsub("]\"","]")
       response = get_response(query)
       hash_response = JSON.parse(response)
     rescue
-      raise(MobileworksPostError, "Mobileworks Request failed")
+      #raise(MobileworksPostError, "Mobileworks Request failed")
     end
-
-    #parse the response, extract location of task, return
-    @task_uri = hash_response["Location"]
-
-    #post_task returns http, but retrieve_task requires https. TODO: clean up this smelly LOC
-    @task_uri = @task_uri.gsub("http:","https:")
-
-    return @task_uri
+# 
+#     #parse the response, extract location of task, return
+#     @task_uri = hash_response["Location"]
+# 
+#     #post_task returns http, but retrieve_task requires https. TODO: clean up this smelly LOC
+#     @task_uri = @task_uri.gsub("http:","https:")
+# 
+#     return @task_uri
 
   end
 
   def self.retrieve_task(task_uri)
 
     begin
-      response = get_response("curl " + task_uri + " -u crowd_ass:cs169")
+      response = get_response("curl " + task_uri + " -u CrowdAssistant:CrowdAss")
       @hash_response = JSON.parse(response)
     rescue
       raise(MobileworksGetError, "Mobileworks get failed, probably due to incorrect task_uri")
@@ -60,8 +76,8 @@ end
 
 #SAMPLE USE CASE
 #-----------------------------------------------------------------------------------
-#task_uri = MobileworksApi.post_task({:instructions=>"How to write rpsec tests for files in lib dir", :fields=>[{:name=>"t"}], :resource=>"http://www.mobileworks.com/developers/images/samplecard.jpg"})
+# task_uri = MobileworksApi.post_task({:instructions=>"How to write rpsec tests for files in lib dir", :fields=>[{:name=>"t"}], :resource=>"http://www.mobileworks.com/developers/images/samplecard.jpg"})
 #
-#task_status = MobileworksApi.retrieve_task(task_uri)
-#puts task_status
+# task_status = MobileworksApi.retrieve_task(task_uri)
+# puts task_status
 
