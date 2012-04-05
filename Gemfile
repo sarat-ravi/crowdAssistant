@@ -15,6 +15,9 @@ gem 'omniauth-openid'
 gem 'omniauth-github'
 
 gem 'json'
+#gem 'mail', "~> 2.4.4"
+
+#gem 'tlsmail'
 
 
 # for Heroku deployment - as described in Ap. A of ELLS book

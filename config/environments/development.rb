@@ -14,7 +14,7 @@ CrowdAssistant::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -27,4 +27,8 @@ CrowdAssistant::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  config.action_mailer.delivery_method = 'SMTP'
+  config.action_mailer.smtp_settings = { :address => 'smtp.gmail.com', :domain => 'localhost.localdomain', :user_name => 'CrowdAssistant', :password => 'CrowdAss', :authentication => 'plain', :enable_starttls_auto => true }
+  config.action_mailer.smtp_settings[:port] = 587
+  config.action_mailer.perform_delivery = true
 end
