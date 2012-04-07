@@ -1,6 +1,7 @@
 <h1 id="heading1">Welcome to Crowd Assistant</h1>
 <div id="indent">
   <p id="heading2">Let the world work for you</p>
+  <%= image_tag @banner_url, :class=>"rounded margined dark_shadow" %>
   <p>&nbsp</p>
   <h4 id="heading2"><%=@welcome_message%></h4>
   <% if current_user.nil? == false %>
