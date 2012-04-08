@@ -49,5 +49,4 @@ describe MobileworksApi do
 
     end
   end
-
 end
