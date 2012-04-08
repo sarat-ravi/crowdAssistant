@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'mobileworks_api'
+require 'json'
 #require File.expand_path(File.dirname(__FILE__) + '/../spec_helper') 
 
 describe MobileworksApi do
@@ -7,20 +8,24 @@ describe MobileworksApi do
   describe "#post_task" do
     it "should post the task and return task uri" do
 
-      #@api = MobileworksApi.new
       @@taskUri = "http://work.mobileworks.com/api/v2/task/168326/" 
       taskUriJson = '{"Location":"' + @@taskUri + '"}'
       MobileworksApi.stub(:get_response).and_return(taskUriJson)
 
-      @task_uri = MobileworksApi.post_task({:instructions=>"How to write rpsec tests for files in lib dir", :fields=>[{:name=>"t"}], :resource=>"http://www.mobileworks.com/developers/images/samplecard.jpg"})
-      @task_uri.should == @@taskUri.gsub("http:","https:") 
+      task = mock('task',:redundancy=>2,:priority=>1, :workflow=>"p",:resourcetype=>"link", :instructions=>"How to write rpsec tests for files in lib dir", :fields=>[{:name=>"t"}], :resource=>"http://www.mobileworks.com/developers/images/samplecard.jpg")
+      hash_response = MobileworksApi.post_task(task)
+
+      task_uri = hash_response["Location"]
+
+
+      task_uri.should == @@taskUri
+
 
     end
 
-    it "should raise exception if missing mandatory params" do
-      lambda{MobileworksApi.post_task({:fields=>[{:name=>"t"}], 
-        :resource=>"http://www.mobileworks.com/developers/images/samplecard.jpg"})}.should raise_error(ArgumentError)
-    end
+    #it "should raise exception if malformed param" do
+    #  lambda{MobileworksApi.post_task("I am an invalid parameter")}.should raise_error(ArgumentError)
+    #end
 
   end
 
