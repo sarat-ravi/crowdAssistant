@@ -59,9 +59,5 @@ CrowdAssistant::Application.configure do
   config.active_support.deprecation = :notify
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => 'smtp.gmail.com', :domain => 'localhost.localdomain', :user_name => 'CrowdAssistant', :password => 'CrowdAss', :authentication => 'plain', :enable_starttls_auto => true }
-  config.action_mailer.smtp_settings[:port] = 587
-  config.action_mailer.perform_delivery = true
-
-
+  config.action_mailer.smtp_settings = { :address => 'smtp.gmail.com', :port => 587, :domain => 'localhost.localdomain', :user_name => 'CrowdAssistant', :password => 'CrowdAss', :authentication => 'plain', :enable_starttls_auto => true }
 end
