@@ -3548,6 +3548,10 @@ a.thumbnail:hover {
   padding:20px;
 }
 
+.thin_padded {
+  padding:10px;
+}
+
 .margined {
   margin:20px;
 }
