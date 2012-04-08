@@ -9,7 +9,7 @@ describe HomeController do
       assigns(:banner_url).should eq("/assets/crowd_graph.png")
     end
     it "has a user" do
-      @user = User.create(:name=>"John")
+      @user = mock('User', :name=>"John")
       controller.stub!(:current_user).and_return(@user)
       get :index
       assigns(:current_user).should eq(@user)

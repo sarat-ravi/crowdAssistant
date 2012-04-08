@@ -8,21 +8,15 @@ class Assistant < ActiveRecord::Base
   end
   def execute_task(task)
     response = MobileworksApi.post_task(task)
-    task.mob_task_id = response["location"]
-    task.save!
-    p task
+    @t = task
+    @t.mob_task_id = response["location"]
+    @t.save!
   end
   def retrieve_task(task)
     response = MobileworksApi.retrieve_task(task)
-    task.status = response["status"]
-    task.answer = response["answer"]
-    task.save!
-    p task
-  end
-  def self.update_all()
-    tasks = Task.where("status = 'processing' OR status = 'new'")
-    tasks.each do |task|
-      retrieve_task(task)
-    end
+    @t = task
+    @t.status = response["status"]
+    @t.answer = response["answer"]
+    @t.save!
   end
 end

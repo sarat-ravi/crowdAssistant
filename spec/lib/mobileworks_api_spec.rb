@@ -56,9 +56,4 @@ describe MobileworksApi do
       resp["Login"].should eq(JSON.parse(MobileworksApi.get_response(cmd))["Login"])
     end
   end
-<<<<<<< HEAD
-
 end
-=======
-end
->>>>>>> cddbc173bd42c1234d0c4049beb9913cb5748d6d
