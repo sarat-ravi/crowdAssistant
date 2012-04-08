@@ -13,11 +13,7 @@ CrowdAssistant::Application.routes.draw do
   match '/profile/update', :to=>"profiles#update", :as => :update_profile
   match '/tasks', :to => "tasks#index", :as => :tasks
 
-  resources :mobworkers
-
   resources :assistants
-
-  resources :transactions
 
   resources :profiles
 
