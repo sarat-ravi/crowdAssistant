@@ -4,14 +4,33 @@ Feature: Check list of tasks
   So that I can easily check the status of the tasks I have created 
   I want to see the statuses of my active tasks
 
-Scenario: stay up to date with tasks
- Given I am on the "status" page
- And Given I am logged in as a user
- Then I should see "Pending Tasks"
- And I should see "Completed Tasks"
 
-Scenario: see details of pending
- Given I am on the "status" page
- And Given I am logged in as a user
- And I follow "Pending Tasks"
- Then I should not see "Completed Tasks"
+Background: tasks have been added to database
+  
+  Given user exists
+  |name     |
+  |John     |
+  And the following tasks exist:
+  |user_id  | instructions             | status  | 
+  |1        | task1                    | completed | 
+  |1        | task2                    | completed | 
+  |1        | task3                    | not started | 
+  |1        | task4                    | completed |
+
+
+Scenario: see all the tasks 
+ Given I am currently on the tasks page 
+ Then I should see "Listing tasks"
+ And I should see "task1"
+ And I should see "task3"
+ And I should see "task2"
+ And I should see "task4"
+
+Scenario: see the status associated with each of the tasks 
+ Given I am currently on the tasks page
+ Then I should see "Listing tasks"
+ And I should see "completed"
+ And I should see "not started"
+ And I should see "completed"
+ And I should see "completed"
+
