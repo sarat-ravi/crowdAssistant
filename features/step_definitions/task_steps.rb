@@ -32,6 +32,10 @@ Given /I am currently on the tasks page/ do
   visit path_to('the tasks page')
 end
 
+Given /This feautre is pending .*/ do
+  pending #
+end
+
 Then /I should be sent to the task page with id "(.*)"/ do |id|
   visit "/tasks/#{id}"
 end
