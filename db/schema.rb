@@ -19,15 +19,6 @@ ActiveRecord::Schema.define(:version => 20120320093157) do
     t.datetime "updated_at"
   end
 
-  create_table "mobworkers", :force => true do |t|
-    t.string   "api_id"
-    t.integer  "assistant_id"
-    t.string   "rating"
-    t.string   "skill"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.integer  "age"
@@ -52,14 +43,6 @@ ActiveRecord::Schema.define(:version => 20120320093157) do
     t.string   "instructions"
     t.string   "fields"
     t.string   "mob_task_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "transactions", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "timestamp"
-    t.integer  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

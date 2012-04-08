@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/environment.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/application.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/application.rb": [
         1,
         null,
         1,
@@ -58,7 +58,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/boot.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/boot.rb": [
         1,
         null,
         null,
@@ -66,7 +66,7 @@
         null,
         1
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/environments/test.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/environments/test.rb": [
         1,
         null,
         null,
@@ -107,7 +107,7 @@
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/initializers/backtrace_silencers.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -116,7 +116,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/initializers/inflections.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -128,26 +128,26 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/initializers/mime_types.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/initializers/omniauth.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/initializers/omniauth.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/initializers/require_files_in_lib.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/initializers/require_files_in_lib.rb": [
         1,
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/lib/mobileworks_api.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/lib/mobileworks_api.rb": [
         null,
         1,
         null,
@@ -155,6 +155,8 @@
         null,
         null,
         1,
+        null,
+        null,
         1,
         null,
         1,
@@ -173,16 +175,11 @@
         null,
         1,
         1,
-        1,
-        null,
-        0,
-        null,
         null,
         null,
         1,
         1,
         null,
-        1,
         1,
         1,
         1,
@@ -205,23 +202,22 @@
         null,
         1,
         null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        0,
-        null,
         null,
         null,
         1,
         1,
         null,
-        0,
-        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
         null,
         null,
         null,
@@ -235,7 +231,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/initializers/secret_token.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/initializers/secret_token.rb": [
         null,
         null,
         null,
@@ -244,7 +240,7 @@
         null,
         1
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/initializers/session_store.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/initializers/session_store.rb": [
         null,
         null,
         1,
@@ -254,7 +250,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/initializers/wrap_parameters.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -270,7 +266,7 @@
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/controllers/application_controller.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -281,35 +277,35 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/helpers/application_helper.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/helpers/assistants_helper.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/helpers/assistants_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/helpers/home_helper.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/helpers/home_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/helpers/profiles_helper.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/helpers/profiles_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/helpers/sessions_helper.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/helpers/sessions_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/helpers/tasks_helper.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/helpers/tasks_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/helpers/users_helper.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/controllers/home_controller.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/controllers/home_controller.rb": [
         1,
         null,
         1,
@@ -325,7 +321,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/controllers/profiles_controller.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/controllers/profiles_controller.rb": [
         1,
         null,
         null,
@@ -358,12 +354,12 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/models/profile.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/models/profile.rb": [
         1,
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/controllers/sessions_controller.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
@@ -374,7 +370,6 @@
         2,
         2,
         2,
-        2,
         1,
         null,
         null,
@@ -390,7 +385,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/controllers/tasks_controller.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/controllers/tasks_controller.rb": [
         1,
         null,
         null,
@@ -489,35 +484,18 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/models/task.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/models/task.rb": [
         1,
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/controllers/users_controller.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/controllers/users_controller.rb": [
         1,
         null,
         null,
         1,
         1,
         null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/models/user.rb": [
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
         1,
         1,
         1,
@@ -526,7 +504,24 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/mailers/user_mailer.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/models/user.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/saratt/Documents/cs169/crowdAssistant/app/mailers/user_mailer.rb": [
         1,
         1,
         1,
@@ -535,7 +530,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/app/models/assistant.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/app/models/assistant.rb": [
         null,
         1,
         null,
@@ -565,7 +560,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/config/routes.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/config/routes.rb": [
         1,
         null,
         null,
@@ -645,39 +640,14 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/controllers/sessions_controller_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/controllers/application_controller_spec.rb": [
+        1,
+        null,
         1,
         null,
         1,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
         null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
         1,
         1,
         1,
@@ -686,79 +656,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/controllers/profiles_controller_spec.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        2,
-        null,
-        null,
-        1,
-        7,
-        null,
-        1,
-        7,
-        7,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/controllers/users_controller_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/controllers/users_controller_spec.rb": [
         1,
         null,
         null,
@@ -775,7 +673,29 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/controllers/tasks_controller_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/controllers/home_controller_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/controllers/tasks_controller_spec.rb": [
         1,
         null,
         1,
@@ -926,8 +846,23 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/controllers/home_controller_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/controllers/sessions_controller_spec.rb": [
         1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null,
         1,
         1,
@@ -939,6 +874,10 @@
         null,
         1,
         1,
+        1,
+        null,
+        null,
+        null,
         1,
         1,
         1,
@@ -948,7 +887,79 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/helpers/users_helper_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/controllers/profiles_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        7,
+        null,
+        1,
+        7,
+        7,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/helpers/assistants_helper_spec.rb": [
         1,
         null,
         null,
@@ -964,7 +975,7 @@
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/helpers/assistants_helper_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/helpers/users_helper_spec.rb": [
         1,
         null,
         null,
@@ -980,7 +991,7 @@
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/helpers/home_helper_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/helpers/profiles_helper_spec.rb": [
         1,
         null,
         null,
@@ -996,7 +1007,7 @@
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/helpers/sessions_helper_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/helpers/sessions_helper_spec.rb": [
         1,
         null,
         null,
@@ -1012,7 +1023,7 @@
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/helpers/tasks_helper_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/helpers/tasks_helper_spec.rb": [
         1,
         null,
         null,
@@ -1028,7 +1039,7 @@
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/helpers/profiles_helper_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/helpers/home_helper_spec.rb": [
         1,
         null,
         null,
@@ -1044,74 +1055,20 @@
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/lib/mobileworks_api_spec.rb": [
-        1,
-        1,
-        1,
-        null,
-        null,
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/models/assistant_spec.rb": [
         1,
         null,
         1,
         1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/mailers/user_mailer_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/models/profile_spec.rb": [
         1,
         null,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/models/user_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -1137,26 +1094,25 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/models/task_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/models/task_spec.rb": [
         1,
         null,
         1,
         null
       ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/models/assistant_spec.rb": [
+      "/home/saratt/Documents/cs169/crowdAssistant/spec/mailers/user_mailer_spec.rb": [
         1,
         null,
         1,
         1,
-        null
-      ],
-      "/home/saasbook/Documents/CS169/crowdAssistant/spec/models/profile_spec.rb": [
+        1,
+        1,
+        1,
         1,
         null,
-        1,
         null
       ]
     },
-    "timestamp": 1333886171
+    "timestamp": 1333893744
   }
 }

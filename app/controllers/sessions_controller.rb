@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     auth = auth_hash
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"])
-    p user
     if not user
       user = User.create_with_omniauth(auth)
       #UserMailer.welcome_email(user).deliver

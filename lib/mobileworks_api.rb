@@ -5,6 +5,8 @@ class MobileworksApi
   #TODO: DRY out code by giving get_response() more responsibilities
 
   def self.post_task(task)
+
+
     filtered_hash={}
 
     filtered_hash["instructions"] = task.instructions
@@ -22,22 +24,17 @@ class MobileworksApi
     #task_hash = {:instructions=>instructions, :fields=>fields}
     #task_hash = task_hash.merge(options)    
     raise( ArgumentError, "task_hash doesn't contain mandatory arguments") unless task_hash.has_key?("instructions") and task_hash.has_key?("fields")
-    begin
-      task_hash_json = task_hash.to_json
-    rescue
-      raise "Malformed Parameters Hash for post_task"
-    end
+    task_hash_json = task_hash.to_json
     
     # curl to mobileworks with the task_hash_json
     begin
-      query = "curl --data '" + task_hash_json +
+      query = "--data '" + task_hash_json +
         "' https://work.mobileworks.com/api/v2/task/ -u CrowdAssistant:CrowdAss"
       query = query.gsub("\\","")
       query = query.gsub("\"[","[")
       query = query.gsub("]\"","]")
       response = get_response(query)
       hash_response = JSON.parse(response)
-      p hash_response
     rescue
       #raise(MobileworksPostError, "Mobileworks Request failed")
     end
@@ -55,22 +52,21 @@ class MobileworksApi
 
   def self.retrieve_task(task)
 
-    begin
-      response = get_response("curl " + task.mob_works_id + " -u CrowdAssistant:CrowdAss")
+    #begin
+      #response = get_response("curl " + task.mob_task_id + " -u CrowdAssistant:CrowdAss")
+      response = get_response(task.mob_task_id + " -u CrowdAssistant:CrowdAss")
       hash_response = JSON.parse(response)
-      p hash_response
-    rescue
-      raise(MobileworksGetError, "Mobileworks get failed, probably due to incorrect task_uri")
-    end
+    #rescue
+      #raise(MobileworksGetError, "Mobileworks get failed, probably due to incorrect task_uri")
+    #end
 
     return hash_response    
 
   end
 
-  private
   def self.get_response(request)
 
-    response = %x(#{request})
+    response = %x(curl -s #{request})
     return response
 
   end
