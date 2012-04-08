@@ -37,6 +37,7 @@ class MobileworksApi
       query = query.gsub("]\"","]")
       response = get_response(query)
       hash_response = JSON.parse(response)
+      p hash_response
     rescue
       #raise(MobileworksPostError, "Mobileworks Request failed")
     end
@@ -48,19 +49,21 @@ class MobileworksApi
 #     @task_uri = @task_uri.gsub("http:","https:")
 # 
 #     return @task_uri
+      return hash_response
 
   end
 
-  def self.retrieve_task(task_uri)
+  def self.retrieve_task(task)
 
     begin
-      response = get_response("curl " + task_uri + " -u CrowdAssistant:CrowdAss")
-      @hash_response = JSON.parse(response)
+      response = get_response("curl " + task.mob_works_id + " -u CrowdAssistant:CrowdAss")
+      hash_response = JSON.parse(response)
+      p hash_response
     rescue
       raise(MobileworksGetError, "Mobileworks get failed, probably due to incorrect task_uri")
     end
 
-    return @hash_response    
+    return hash_response    
 
   end
 

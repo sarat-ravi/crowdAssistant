@@ -15,6 +15,7 @@ gem 'omniauth-openid'
 gem 'omniauth-github'
 
 gem 'json'
+gem 'whenever'
 #gem 'mail', "~> 2.4.4"
 
 #gem 'tlsmail'
