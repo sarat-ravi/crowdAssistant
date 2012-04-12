@@ -51,7 +51,6 @@ class MobileworksApi
   end
 
   def self.retrieve_task(task)
-
     #begin
       #response = get_response("curl " + task.mob_task_id + " -u CrowdAssistant:CrowdAss")
       response = get_response(task.mob_task_id + " -u CrowdAssistant:CrowdAss")

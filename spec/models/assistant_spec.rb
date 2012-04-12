@@ -13,7 +13,7 @@ describe Assistant do
 	end
 	it "executes task" do
 		hash = {}
-		hash["location"] = "https://works.mobileworks.com/api/v2/tasks/1/"
+		hash["Location"] = "https://works.mobileworks.com/api/v2/tasks/1/"
 		MobileworksApi.stub!(:post_task).with(@task).and_return(hash)
 		@a.execute_task(@task)
 		Task.find_by_id(@task.id).mob_task_id.should eq("https://works.mobileworks.com/api/v2/tasks/1/")

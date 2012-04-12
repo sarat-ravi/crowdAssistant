@@ -21,7 +21,8 @@ set :output, "/app/log/cron_log.log"
 
 every 1.minute do
 	p "This is a running of the Task update"
-	runner "Assistant.update_all"
+	command "echo 'This is the scheduler.'", :environment => "development"
+	runner "Assistant.update_all", :environment => "development"
 end
 
 # Learn more: http://github.com/javan/whenever
