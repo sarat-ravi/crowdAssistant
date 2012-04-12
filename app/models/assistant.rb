@@ -8,16 +8,13 @@ class Assistant < ActiveRecord::Base
   end
   def self.execute_task(task)
     response = MobileworksApi.post_task(task)
-    p response
     task.mob_task_id = response["Location"]
     task.save!
-    p task
   end
   def self.retrieve_task(task)
     response = MobileworksApi.retrieve_task(task)
     task.status = response["status"]
     json = response["answer"][0]
-    #hash = JSON.parse(json)
     task.answer = ""
     json.each do |k, v|
       task.answer += "#{k}: #{v}"
