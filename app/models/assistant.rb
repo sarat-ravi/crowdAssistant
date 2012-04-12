@@ -4,6 +4,7 @@ class Assistant < ActiveRecord::Base
   #has_many :mobworkers
   #@@mob_api_url = "https://work.mobileworks.com/api/v2/job/"
   def self.handle(task)
+    p "handled"
     execute_task(task) 
   end
   def self.execute_task(task)
@@ -14,10 +15,15 @@ class Assistant < ActiveRecord::Base
   def self.retrieve_task(task)
     response = MobileworksApi.retrieve_task(task)
     task.status = response["status"]
-    json = response["answer"][0]
-    task.answer = ""
-    json.each do |k, v|
-      task.answer += "#{k}: #{v}"
+    if response["answer"] == response["answer"].to_s
+      task.answer = response["answer"]
+    else
+      json = response["answer"][0]
+      task.answer = ""
+      json.each do |k, v|
+        task.answer += "#{k}: #{v}.  "
+      end
+      task.answer = task.answer.strip()
     end
     task.save!
   end

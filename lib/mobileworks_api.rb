@@ -5,7 +5,7 @@ class MobileworksApi
   #TODO: DRY out code by giving get_response() more responsibilities
 
   def self.post_task(task)
-
+    p task
 
     filtered_hash={}
 
@@ -34,6 +34,7 @@ class MobileworksApi
       query = query.gsub("\"[","[")
       query = query.gsub("]\"","]")
       response = get_response(query)
+      p response
       hash_response = JSON.parse(response)
     rescue
       #raise(MobileworksPostError, "Mobileworks Request failed")

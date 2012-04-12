@@ -24,6 +24,6 @@ describe Assistant do
 		MobileworksApi.stub!(:retrieve_task).with(@task).and_return(hash)
 		Assistant.retrieve_task(@task)
 		Task.find_by_id(@task.id).status.should eq("Completed")
-		Task.find_by_id(@task.id).answer.should eq("Response: Answer")
+		Task.find_by_id(@task.id).answer.should eq("Response: Answer.")
 	end
 end

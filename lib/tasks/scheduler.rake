@@ -4,6 +4,7 @@ task :update_task => :environment do
 	Assistant.update_all
 	p "Done."
 end
-task :fetch_mail do
+task :fetch_mail => :environment do
 	p "Called Rake..."
+	UserMailer.fetch_mail
 end
