@@ -29,13 +29,14 @@ class MobileworksApi
     # curl to mobileworks with the task_hash_json
     begin
       query = "--data '" + task_hash_json +
-        "' https://work.mobileworks.com/api/v2/task/ -u CrowdAssistant:CrowdAss"
+        "' https://sandbox.mobileworks.com/api/v2/task/ -u CrowdAssistant:CrowdAss"
       query = query.gsub("\\","")
       query = query.gsub("\"[","[")
       query = query.gsub("]\"","]")
       response = get_response(query)
-      p response
       hash_response = JSON.parse(response)
+      hash_response["Location"] = hash_response["Location"].gsub("http://","https://")
+      p hash_response
     rescue
       #raise(MobileworksPostError, "Mobileworks Request failed")
     end
@@ -55,6 +56,7 @@ class MobileworksApi
     #begin
       #response = get_response("curl " + task.mob_task_id + " -u CrowdAssistant:CrowdAss")
       response = get_response(task.mob_task_id + " -u CrowdAssistant:CrowdAss")
+      p response
       hash_response = JSON.parse(response)
     #rescue
       #raise(MobileworksGetError, "Mobileworks get failed, probably due to incorrect task_uri")
@@ -68,7 +70,13 @@ class MobileworksApi
 
     response = %x(curl -s #{request})
     return response
+  end
 
+  def self.user_profile
+    response = get_response("https://work.mobileworks.com/api/v1/userprofile/ -u CrowdAssistant:CrowdAss")
+    hash_response = JSON.parse(response)
+    return hash_response
+    #balance = hash_response["objects"][0]["balance"]
   end
 
 end

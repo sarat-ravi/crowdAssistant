@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120320093157) do
+ActiveRecord::Schema.define(:version => 20120413073208) do
 
   create_table "assistants", :force => true do |t|
     t.string   "type"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20120320093157) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "balance"
   end
 
 end

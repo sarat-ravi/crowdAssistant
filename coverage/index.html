@@ -23,27 +23,27 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-04-11T19:19:28-07:00">2012-04-11T19:19:28-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-04-13T00:14:47-07:00">2012-04-13T00:14:47-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">97.82%</span></span>
+    (<span class="covered_percent"><span class="green">94.36%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.1
+         1.08
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>50</b> files in total.
-    <b>505</b> relevant lines. 
-    <span class="green"><b>494</b> lines covered</span> and
-    <span class="red"><b>11</b> lines missed </span>
+    <b>532</b> relevant lines. 
+    <span class="green"><b>502</b> lines covered</span> and
+    <span class="red"><b>30</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -191,12 +191,12 @@
       
       <tr>
         <td class="strong"><a href="#74579610812dc2e14ea2601b8bb2c81d4f9189de" class="src_link" title="app/mailers/user_mailer.rb">app/mailers/user_mailer.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>7</td>
-        <td>5</td>
-        <td>5</td>
-        <td>0</td>
-        <td>1.0</td>
+        <td class="red strong">32.0 %</td>
+        <td>33</td>
+        <td>25</td>
+        <td>8</td>
+        <td>17</td>
+        <td>0.3</td>
       </tr>
       
       <tr>
@@ -311,12 +311,12 @@
       
       <tr>
         <td class="strong"><a href="#c77271334aa6f4f1bf60b74dad8703b73ee92e46" class="src_link" title="config/initializers/omniauth.rb">config/initializers/omniauth.rb</a></td>
-        <td class="yellow strong">83.33 %</td>
-        <td>9</td>
-        <td>6</td>
+        <td class="green strong">100.0 %</td>
+        <td>8</td>
         <td>5</td>
-        <td>1</td>
-        <td>0.8</td>
+        <td>5</td>
+        <td>0</td>
+        <td>1.0</td>
       </tr>
       
       <tr>
@@ -381,12 +381,12 @@
       
       <tr>
         <td class="strong"><a href="#8a9630ba767082aab65bd0d8099e4938cbe1a890" class="src_link" title="lib/mobileworks_api.rb">lib/mobileworks_api.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>81</td>
-        <td>29</td>
-        <td>29</td>
-        <td>0</td>
-        <td>3.2</td>
+        <td class="green strong">91.89 %</td>
+        <td>90</td>
+        <td>37</td>
+        <td>34</td>
+        <td>3</td>
+        <td>2.8</td>
       </tr>
       
       <tr>
@@ -2018,11 +2018,11 @@
         <div class="source_table" id="74579610812dc2e14ea2601b8bb2c81d4f9189de">
   <div class="header">
     <h3>app/mailers/user_mailer.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="red">32.0 %</span> covered</h4>
     <div>
-      <b>5</b> relevant lines. 
-      <span class="green"><b>5</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>25</b> relevant lines. 
+      <span class="green"><b>8</b> lines covered</span> and
+      <span class="red"><b>17</b> lines missed.</span>
     </div>
   </div>
   
@@ -2032,40 +2032,196 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class UserMailer &lt; ActionMailer::Base</code>
+          <code class="ruby">require 'net/http'</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  default from: &quot;CrowdAssistant@gmail.com&quot;</code>
+          <code class="ruby">require 'net/imap'</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="3">
           
-          <code class="ruby">  def welcome_email(user)</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  	@user = user</code>
+          <code class="ruby">class UserMailer &lt; ActionMailer::Base</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
+          <code class="ruby">  default from: &quot;CrowdAssistant@gmail.com&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def welcome_email(user)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  	@user = user</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
           <code class="ruby">  	mail(:to =&gt; user.email, :subject =&gt; &quot;Welcome to CrowdAssistant&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def fetch_mail</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="11">
+          
+          
+          <code class="ruby">  	p &quot;Fetching mail...&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="12">
+          
+          
+          <code class="ruby">  	config = { :host =&gt; 'imap.gmail.com', :port =&gt; 993, :username =&gt; 'CrowdAssistant', :password =&gt; 'CrowdAss'}</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="13">
+          
+          
+          <code class="ruby">  	imap = Net::IMAP.new(config[:host], config[:port], true)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="14">
+          
+          
+          <code class="ruby">  	imap.login(config[:username], config[:password])</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="15">
+          
+          
+          <code class="ruby">  	imap.select(&quot;INBOX&quot;)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
+          
+          <code class="ruby">  	messages_to_archive = []</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="17">
+          
+          
+          <code class="ruby">  	imap.search([&quot;NOT&quot;, &quot;DELETED&quot;]).each do |message_id|</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="18">
+          
+          
+          <code class="ruby">  		task = imap.fetch(message_id, 'BODY[TEXT]')[0].attr['BODY[TEXT]']</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="19">
+          
+          
+          <code class="ruby">  		message = imap.fetch(message_id, 'ENVELOPE')[0].attr['ENVELOPE']</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="20">
+          
+          
+          <code class="ruby">  		from = &quot;#{message.sender[0].mailbox}@#{message.sender[0].host}&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="21">
+          
+          
+          <code class="ruby">  		u = User.find_by_email(from)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="22">
+          
+          
+          <code class="ruby">  		if u</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">	  		#Why does an empty resource and resourcetype fail?</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="24">
+          
+          
+          <code class="ruby">	  		t = Task.create(:user_id =&gt; u.id, :instructions =&gt; task, :fields =&gt; &quot;[{\&quot;Reply\&quot;:\&quot;t\&quot;}]&quot;, :priority =&gt; 2, :workflow =&gt; &quot;p&quot;, :redundancy =&gt; 2, :resource =&gt; &quot;www.google.com&quot;, :resourcetype =&gt; &quot;l&quot;)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">	  		Assistant.handle(t)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">	  	else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="27">
+          
+          
+          <code class="ruby">	  		p &quot;Whoops, some dude who hasn't signed up sent us an email&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">	  	end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
+          
+          <code class="ruby">  		messages_to_archive &lt;&lt; message_id</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">  	end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="31">
+          
+          
+          <code class="ruby">   	imap.store(messages_to_archive, &quot;+FLAGS&quot;, [:Deleted]) unless messages_to_archive.empty?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">end</code>
@@ -2128,7 +2284,7 @@
         <li class="covered" data-hits="3" data-linenumber="7">
           <span class="hits">3</span>
           
-          <code class="ruby">    execute_task(task) </code>
+          <code class="ruby">    execute_task(task)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
@@ -3338,11 +3494,11 @@
         <div class="source_table" id="c77271334aa6f4f1bf60b74dad8703b73ee92e46">
   <div class="header">
     <h3>config/initializers/omniauth.rb</h3>
-    <h4><span class="yellow">83.33 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>6</b> relevant lines. 
+      <b>5</b> relevant lines. 
       <span class="green"><b>5</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -3364,40 +3520,34 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">  if Rails.env.production?</code>
+          <code class="ruby">  if Rails.env.production? provider :facebook, '407994262545802', '2b10ac73633f1b4212217ad74b9dff05'</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="4">
-          
-          
-          <code class="ruby">  	provider :facebook, '407994262545802', '2b10ac73633f1b4212217ad74b9dff05'</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="never" data-hits="" data-linenumber="4">
           
           
           <code class="ruby">  else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="6">
+        <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
           <code class="ruby">	provider :facebook, '325736630808754', '8119d3396ebd3dfbf501ee6afdde4621'</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
           <code class="ruby">  provider :google, '464129304782.apps.googleusercontent.com', 'sKlYXAwBVJZKd59YI8vp_4Y9'</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby">end</code>
@@ -4244,11 +4394,11 @@
         <div class="source_table" id="8a9630ba767082aab65bd0d8099e4938cbe1a890">
   <div class="header">
     <h3>lib/mobileworks_api.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">91.89 %</span> covered</h4>
     <div>
-      <b>29</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>37</b> relevant lines. 
+      <span class="green"><b>34</b> lines covered</span> and
+      <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
   
@@ -4297,10 +4447,10 @@
           <code class="ruby">  def self.post_task(task)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="covered" data-hits="4" data-linenumber="8">
+          <span class="hits">4</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">    p task</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -4444,7 +4594,7 @@
         <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">        &quot;' https://work.mobileworks.com/api/v2/task/ -u CrowdAssistant:CrowdAss&quot;</code>
+          <code class="ruby">        &quot;' https://sandbox.mobileworks.com/api/v2/task/ -u CrowdAssistant:CrowdAss&quot;</code>
         </li>
       
         <li class="covered" data-hits="4" data-linenumber="33">
@@ -4477,88 +4627,88 @@
           <code class="ruby">      hash_response = JSON.parse(response)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="covered" data-hits="4" data-linenumber="38">
+          <span class="hits">4</span>
           
-          
-          <code class="ruby">    rescue</code>
+          <code class="ruby">      hash_response[&quot;Location&quot;] = hash_response[&quot;Location&quot;].gsub(&quot;http://&quot;,&quot;https://&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      #raise(MobileworksPostError, &quot;Mobileworks Request failed&quot;)</code>
+          <code class="ruby">      p hash_response</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="40">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">    rescue</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby"># </code>
+          <code class="ruby">      #raise(MobileworksPostError, &quot;Mobileworks Request failed&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="42">
           
           
-          <code class="ruby">#     #parse the response, extract location of task, return</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby">#     @task_uri = hash_response[&quot;Location&quot;]</code>
+          <code class="ruby"># </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby"># </code>
+          <code class="ruby">#     #parse the response, extract location of task, return</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="45">
           
           
-          <code class="ruby">#     #post_task returns http, but retrieve_task requires https. TODO: clean up this smelly LOC</code>
+          <code class="ruby">#     @task_uri = hash_response[&quot;Location&quot;]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">#     @task_uri = @task_uri.gsub(&quot;http:&quot;,&quot;https:&quot;)</code>
+          <code class="ruby"># </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby"># </code>
+          <code class="ruby">#     #post_task returns http, but retrieve_task requires https. TODO: clean up this smelly LOC</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
           
           
-          <code class="ruby">#     return @task_uri</code>
+          <code class="ruby">#     @task_uri = @task_uri.gsub(&quot;http:&quot;,&quot;https:&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="49">
-          <span class="hits">4</span>
+        <li class="never" data-hits="" data-linenumber="49">
           
-          <code class="ruby">      return hash_response</code>
+          
+          <code class="ruby"># </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="50">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">#     return @task_uri</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="51">
+        <li class="covered" data-hits="4" data-linenumber="51">
+          <span class="hits">4</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">      return hash_response</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="52">
@@ -4567,106 +4717,106 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="53">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def self.retrieve_task(task)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="54">
-          
-          
-          <code class="ruby">    #begin</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="55">
-          
-          
-          <code class="ruby">      #response = get_response(&quot;curl &quot; + task.mob_task_id + &quot; -u CrowdAssistant:CrowdAss&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="56">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      response = get_response(task.mob_task_id + &quot; -u CrowdAssistant:CrowdAss&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="57">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      hash_response = JSON.parse(response)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
-          
-          
-          <code class="ruby">    #rescue</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="59">
-          
-          
-          <code class="ruby">      #raise(MobileworksGetError, &quot;Mobileworks get failed, probably due to incorrect task_uri&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="60">
-          
-          
-          <code class="ruby">    #end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="62">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    return hash_response    </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="64">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="65">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="66">
+        <li class="covered" data-hits="1" data-linenumber="55">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.get_response(request)</code>
+          <code class="ruby">  def self.retrieve_task(task)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby">    #begin</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">      #response = get_response(&quot;curl &quot; + task.mob_task_id + &quot; -u CrowdAssistant:CrowdAss&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      response = get_response(task.mob_task_id + &quot; -u CrowdAssistant:CrowdAss&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      p response</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="60">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      hash_response = JSON.parse(response)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby">    #rescue</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">      #raise(MobileworksGetError, &quot;Mobileworks get failed, probably due to incorrect task_uri&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">    #end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="65">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    return hash_response    </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="67">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="68">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="1" data-linenumber="69">
+          <span class="hits">1</span>
           
-          <code class="ruby">    response = %x(curl -s #{request})</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="69">
-          <span class="hits">4</span>
-          
-          <code class="ruby">    return response</code>
+          <code class="ruby">  def self.get_response(request)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="70">
@@ -4675,22 +4825,22 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="covered" data-hits="4" data-linenumber="71">
+          <span class="hits">4</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    response = %x(curl -s #{request})</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
+        <li class="covered" data-hits="4" data-linenumber="72">
+          <span class="hits">4</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">    return response</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="73">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="74">
@@ -4699,43 +4849,97 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="covered" data-hits="1" data-linenumber="75">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">#SAMPLE USE CASE</code>
+          <code class="ruby">  def self.user_profile</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="missed" data-hits="0" data-linenumber="76">
           
           
-          <code class="ruby">#-----------------------------------------------------------------------------------</code>
+          <code class="ruby">    response = get_response(&quot;https://work.mobileworks.com/api/v1/userprofile/ -u CrowdAssistant:CrowdAss&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="missed" data-hits="0" data-linenumber="77">
           
           
-          <code class="ruby"># task_uri = MobileworksApi.post_task({:instructions=&gt;&quot;How to write rpsec tests for files in lib dir&quot;, :fields=&gt;[{:name=&gt;&quot;t&quot;}], :resource=&gt;&quot;http://www.mobileworks.com/developers/images/samplecard.jpg&quot;})</code>
+          <code class="ruby">    hash_response = JSON.parse(response)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="78">
+        <li class="missed" data-hits="0" data-linenumber="78">
           
           
-          <code class="ruby">#</code>
+          <code class="ruby">    return hash_response</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="79">
           
           
-          <code class="ruby"># task_status = MobileworksApi.retrieve_task(task_uri)</code>
+          <code class="ruby">    #balance = hash_response[&quot;objects&quot;][0][&quot;balance&quot;]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="80">
           
           
-          <code class="ruby"># puts task_status</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="81">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="82">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="83">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="84">
+          
+          
+          <code class="ruby">#SAMPLE USE CASE</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="85">
+          
+          
+          <code class="ruby">#-----------------------------------------------------------------------------------</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="86">
+          
+          
+          <code class="ruby"># task_uri = MobileworksApi.post_task({:instructions=&gt;&quot;How to write rpsec tests for files in lib dir&quot;, :fields=&gt;[{:name=&gt;&quot;t&quot;}], :resource=&gt;&quot;http://www.mobileworks.com/developers/images/samplecard.jpg&quot;})</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="87">
+          
+          
+          <code class="ruby">#</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="88">
+          
+          
+          <code class="ruby"># task_status = MobileworksApi.retrieve_task(task_uri)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="89">
+          
+          
+          <code class="ruby"># puts task_status</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="90">
           
           
           <code class="ruby"></code>
@@ -7300,7 +7504,7 @@
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">      taskUri = &quot;http://work.mobileworks.com/api/v2/task/1/&quot; </code>
+          <code class="ruby">      taskUri = &quot;https://work.mobileworks.com/api/v2/task/1/&quot; </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="15">

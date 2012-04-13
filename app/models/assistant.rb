@@ -4,8 +4,7 @@ class Assistant < ActiveRecord::Base
   #has_many :mobworkers
   #@@mob_api_url = "https://work.mobileworks.com/api/v2/job/"
   def self.handle(task)
-    p "handled"
-    execute_task(task) 
+    execute_task(task)
   end
   def self.execute_task(task)
     response = MobileworksApi.post_task(task)

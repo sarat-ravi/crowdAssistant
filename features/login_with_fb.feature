@@ -5,7 +5,7 @@ Feature: Login with facebook
   I want to login with facebook credentials
 
   Scenario: click on login button
-  	Given This feature is pending due to testing of external site (Facebook's Oauth), after installing selenium this will be handled by next iteration!
+  	Given This feature is pending due to testing of external site (Facebook's Oauth)
 
     #Given I am on the home page
     #When I follow "fb_button"

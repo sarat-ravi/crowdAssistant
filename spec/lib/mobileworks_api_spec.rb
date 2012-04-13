@@ -11,7 +11,7 @@ describe MobileworksApi do
   describe "#post_task" do
     it "should post the task and return task uri" do
 
-      taskUri = "http://work.mobileworks.com/api/v2/task/1/" 
+      taskUri = "https://work.mobileworks.com/api/v2/task/1/" 
       taskUriJson = '{"Location":"' + taskUri + '"}'
       MobileworksApi.stub(:get_response).and_return(taskUriJson)
 
