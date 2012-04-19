@@ -3538,13 +3538,21 @@ a.thumbnail:hover {
 }
 
 .center_panel {
-  width:100%;
+  min-width:1200px;
   height:100%;
   font-family: â€˜Arial Blackâ€™, Gadget, sans-serif;
   background: #dddddd;  
   background-size:auto 100%;
   color:#222222;  
 
+}
+
+.centered_vertically {
+
+  width:1288px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .padded {
@@ -3578,12 +3586,23 @@ a.thumbnail:hover {
 
 .text_box {
 
-  background:#ffffff;
+  background:#eeeeee;
   color:#777777;
-  height:150px;
+  min-height:150px;
 
 }
 
 .fill_height {
   height:100%;
+}
+
+.banner {
+  height:330px;
+  width:100%;
+}
+
+.fineprint {
+  font-size:11px;
+  margin:10px;
+  color:#bbbbbb;
 }
