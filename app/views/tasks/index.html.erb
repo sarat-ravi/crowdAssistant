@@ -1,6 +1,6 @@
 <h1 id="heading1">Listing tasks</h1>
 
-<table class="table padded">
+<table class="table table-striped">
   <tr>
     <th>Task date</th>
     <th>Task</th>
@@ -13,7 +13,7 @@
 
 <% @tasks.each do |task| %>
   <tr class="hover">
-    <td><%= task.created_at %></td>
+    <td><%= task.created_at %><p>&nbsp</p></td>
     <td><%= task.instructions %></td>
     <td><%= task.status %></td>
     <td><%= task.answer %></td>

@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="center_panel">
-<div class="navbar navbar-fixed-top dark_shadow" style="">
+<div class="navbar navbar-fixed-top" style="">
   <div class="navbar-inner">
     <div class="container thin_padded">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".collapse">
@@ -39,11 +39,15 @@
     </div>
   </div>
 </div>
-
-<div class="center_panel">
+<% if not current_page? root_path %>
   <div class="panel">
     <%= yield %>
   </div>
+<% else %>
+  <div class="">
+    <%= yield %>
+  </div>
+<% end %>
 </div>
 </body>
 </html>
