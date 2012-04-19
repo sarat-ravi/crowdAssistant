@@ -1,6 +1,8 @@
 CrowdAssistant::Application.routes.draw do
 
   
+  resources :payments
+
   root :to => 'home#index'
 
   resources :tasks
@@ -12,6 +14,7 @@ CrowdAssistant::Application.routes.draw do
   match '/profile/edit', :to=>"profiles#edit", :as => :edit_profile
   match '/profile/update', :to=>"profiles#update", :as => :update_profile
   match '/tasks', :to => "tasks#index", :as => :tasks
+  match '/payment', :to => "payments#index", :as => :payment
 
   resources :assistants
 

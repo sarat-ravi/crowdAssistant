@@ -7,13 +7,14 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th></th>
+      <th>Balance</th>
       <th></th>
       <th></th>
     </tr>
     <tr>
       <td><%= @user.name %></td>
       <td><%= @user.email %></td>
+      <td><%= @user.balance %></td>
     </tr>
     </br>
     </br>
@@ -22,7 +23,8 @@
   
   <div class="padded rounded links dark_shadow">
     <%= link_to "View Full Profile", profile_path %> </br>
-    <%= link_to "View Tasks", tasks_path %>
+    <%= link_to "View Tasks", tasks_path %> </br>
+    <%= link_to "Charge Card", payment_path %>
   </div>
 </div>
 <br />

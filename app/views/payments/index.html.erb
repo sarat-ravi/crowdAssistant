@@ -1,0 +1,85 @@
+
+<script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+<script type="text/javascript">
+    Stripe.setPublishableKey('pk_UukskuFOiGwUXsMkDqVMTK5SJkssT');
+    $(document).ready(function() {
+      $("#payment-form").submit(function(event) {
+        // disable the submit button to prevent repeated clicks
+        $('.submit-button').attr("disabled", "disabled");
+
+        Stripe.createToken({
+            number: $('.card-number').val(),
+            cvc: $('.card-cvc').val(),
+            exp_month: $('.card-expiry-month').val(),
+            exp_year: $('.card-expiry-year').val()
+        }, stripeResponseHandler);
+
+        // prevent the form from submitting with the default action
+        return false;
+      });
+    });
+    function stripeResponseHandler(status, response) {
+        if (response.error) {
+            $('.submit-button').removeAttr("disabled");
+            //show the errors on the form
+            alert(response.error.message);
+            $(".payment-errors").html(response.error.message);
+        } else {
+            var form$ = $("#payment-form");
+            // token contains id, last4, and card type
+            var token = response['id'];
+            // insert the token into the form so it gets submitted to the server
+            alert("Woohooo:" + token);
+            //form$.append("<input type='hidden' name='stripe_card_token' id= 'stripe_card_token' value='" + token + "'/>");
+            form$.append("<input id='stripe_card_token' name='stripe_card_token' type='hidden' value='"+token+"'/>")
+            //form$.append("<%= hidden_field_tag :stripe_card_token, '"+token+"' %>")
+            //form$.append("<%= hidden_field :stripe_card_token, :value => '" + token + "'%>")
+            // and submit
+            form$.get(0).submit();
+        }
+    }
+
+</script>
+
+      <%= form_for Payment.new, :html => {:id => "payment-form", :class => "payment-form"} do |f|%>
+      <div class="field">
+        <table style="margin:0 auto;">
+            <tr>
+                <td valign="top" >Cardholder Name</td>
+                <td><input type="text" size="20"></input><br/>(exactly as shown on card)</td>
+            </tr>
+            <tr>
+                <td valign="top" style="width:150px"><%= label_tag :card_number, "Card Number" %></td>
+                <td><%= text_field_tag :card_number, nil, :name => nil, :class => 'card-number' %><br/><img src="/images/cards.png"/></td>
+            </tr>
+            <tr>
+                <td valign="top" style="width:150px"><%= label_tag :card_month, "Expiration Date" %></td>
+                <td><%= select_month nil, {:add_month_numbers => true}, {:name => nil, :class => "card-expiry-month"} %>
+                    <%= select_year nil, {:start_year => Date.today.year, :end_year => Date.today.year+15}, {:name => nil, :class => "card-expiry-year"} %>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" style="width:150px"><%= label_tag :card_code, "CVV Code" %></td>
+                <td><%= text_field_tag :card_code, nil, :name => nil, :class => 'card-cvc' %></td>
+            </tr>
+            <tr>
+                <td valign="top" style="width:150px"><%= label_tag :amount, "Amount" %></td>
+                <td><%= text_field_tag :amount, nil, :name => "amount", :class => 'amount' %></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                <input type="checkbox"/> I agree to the <a href="#">Terms and Conditions</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <%= f.submit "Buy" %>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        </br>
+    </div>
+      <%end%>
+
+<%= link_to 'Back to User', user_path %>

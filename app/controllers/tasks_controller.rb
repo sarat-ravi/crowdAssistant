@@ -57,6 +57,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         Assistant.handle(@task)
+        current_user.update_attributes(:balance => current_user.balance - 15)
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
