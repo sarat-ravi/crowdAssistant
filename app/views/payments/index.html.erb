@@ -29,7 +29,7 @@
             // token contains id, last4, and card type
             var token = response['id'];
             // insert the token into the form so it gets submitted to the server
-            alert("Woohooo:" + token);
+            //alert("Woohooo:" + token);
             //form$.append("<input type='hidden' name='stripe_card_token' id= 'stripe_card_token' value='" + token + "'/>");
             form$.append("<input id='stripe_card_token' name='stripe_card_token' type='hidden' value='"+token+"'/>")
             //form$.append("<%= hidden_field_tag :stripe_card_token, '"+token+"' %>")
@@ -50,21 +50,21 @@
             </tr>
             <tr>
                 <td valign="top" style="width:150px"><%= label_tag :card_number, "Card Number" %></td>
-                <td><%= text_field_tag :card_number, nil, :name => nil, :class => 'card-number' %><br/><img src="/images/cards.png"/></td>
+                <td><%= text_field_tag :card_number, nil, :name => nil, :class => 'card-number', :id => 'card-number' %><br/><img src="/images/cards.png"/></td>
             </tr>
             <tr>
                 <td valign="top" style="width:150px"><%= label_tag :card_month, "Expiration Date" %></td>
-                <td><%= select_month nil, {:add_month_numbers => true}, {:name => nil, :class => "card-expiry-month"} %>
-                    <%= select_year nil, {:start_year => Date.today.year, :end_year => Date.today.year+15}, {:name => nil, :class => "card-expiry-year"} %>
+                <td><%= select_month nil, {:add_month_numbers => true}, {:name => nil, :class => "card-expiry-month", :id => 'card-expiry-month'} %>
+                    <%= select_year nil, {:start_year => Date.today.year, :end_year => Date.today.year+15}, {:name => nil, :class => "card-expiry-year", :id => 'card-expiry-year'} %>
                 </td>
             </tr>
             <tr>
                 <td valign="top" style="width:150px"><%= label_tag :card_code, "CVV Code" %></td>
-                <td><%= text_field_tag :card_code, nil, :name => nil, :class => 'card-cvc' %></td>
+                <td><%= text_field_tag :card_code, nil, :name => nil, :class => 'card-cvc', :id => 'card-cvc' %></td>
             </tr>
             <tr>
                 <td valign="top" style="width:150px"><%= label_tag :amount, "Amount" %></td>
-                <td><%= text_field_tag :amount, nil, :name => "amount", :class => 'amount' %></td>
+                <td><%= text_field_tag :amount, nil, :name => "amount", :class => 'amount', :id => 'amount' %></td>
             </tr>
             <tr>
                 <td colspan="2">

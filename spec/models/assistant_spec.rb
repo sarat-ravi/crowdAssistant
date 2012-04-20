@@ -26,4 +26,10 @@ describe Assistant do
 		Task.find_by_id(@task.id).status.should eq("Completed")
 		Task.find_by_id(@task.id).answer.should eq("Response: Answer.")
 	end
+	it "updates all tasks" do
+		Task.stub!(:find).and_return([@task])
+		Assistant.stub!(:retrieve_task).and_return(true)
+		Assistant.should_receive(:retrieve_task).with(@task).and_return(true)
+		Assistant.update_all
+	end
 end
