@@ -7,6 +7,11 @@ class UserMailer < ActionMailer::Base
   	@user = user
   	mail(:to => user.email, :subject => "Welcome to CrowdAssistant")
   end
+  def task_finished(task)
+    @task = task
+    @user = User.find(@task.user_id)
+    mail(:to => @user.email, :subject => "Your task has completed")
+  end
   def fetch_mail
   	p "Fetching mail..."
   	config = { :host => 'imap.gmail.com', :port => 993, :username => 'CrowdAssistant', :password => 'CrowdAss'}
