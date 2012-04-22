@@ -39,6 +39,8 @@
     </div>
   </div>
 </div>
+<%= flash[:error] %>
+<%= flash[:notice] %>
 <% if not current_page? root_path %>
   <div class="panel">
     <%= yield %>
@@ -49,7 +51,7 @@
   </div>
 <% end %>
 <div class="centered_vertically">
-  <p class="fineprint">© 2012 Sarat Tallamraju, Samvit Ramadurgam, Vamsi Chitters, Tanooj Luthra</p>
+  <p class="fineprint">© 2012 </p>
 </div>
 </div>
 </body>

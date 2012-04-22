@@ -33,9 +33,9 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/1/edit
-  def edit
-    @task = current_user.tasks.find(params[:id])
-  end
+#  def edit
+#    @task = current_user.tasks.find(params[:id])
+#  end
 
   # POST /tasks
   # POST /tasks.json
@@ -85,13 +85,13 @@ class TasksController < ApplicationController
 
   # DELETE /tasks/1
   # DELETE /tasks/1.json
-  def destroy
-    @task = current_user.tasks.find(params[:id])
-    @task.destroy
+#  def destroy
+#    @task = current_user.tasks.find(params[:id])
+#    @task.destroy
 
-    respond_to do |format|
-      format.html { redirect_to tasks_url }
-      format.json { head :ok }
-    end
-  end
+#    respond_to do |format|
+#      format.html { redirect_to tasks_url }
+#      format.json { head :ok }
+#    end
+#  end
 end
