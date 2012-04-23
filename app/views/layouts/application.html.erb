@@ -30,8 +30,8 @@
 
       <div style="margin-top:8px; float:right">
         <% if current_user %>
-            Signed in as <%= link_to current_user.name, "/user", :class=>"white_link"%>!
-            <%= link_to "Sign Out", signout_path, :class =>"white_link" %>
+            Signed in as <%= link_to current_user.name, "/user", :id=>"white_link"%>!
+            <%= link_to "Sign Out", signout_path, :id =>"white_link" %>
         <% else %>
           <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook", :id => "fb_button") %>
         <% end %>

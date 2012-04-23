@@ -6,6 +6,6 @@
  *= require_tree . 
 */
 
-.white_link {
+#white_link {
 	color:#fff;
 }
