@@ -30,8 +30,8 @@
 
       <div style="margin-top:8px; float:right">
         <% if current_user %>
-            Signed in as <%= link_to(current_user.name, "/user")%>!
-            <%= link_to "Sign Out", signout_path %>
+            Signed in as <%= link_to current_user.name, "/user", :id=>"white_link"%>!
+            <%= link_to "Sign Out", signout_path, :id =>"white_link" %>
         <% else %>
           <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook", :id => "fb_button") %>
         <% end %>
@@ -39,6 +39,8 @@
     </div>
   </div>
 </div>
+<div id="flash_error"><%= flash[:error] %></div>
+<div id="flash_notice"><%= flash[:notice] %></div>
 <% if not current_page? root_path %>
   <div class="panel">
     <%= yield %>
@@ -49,7 +51,7 @@
   </div>
 <% end %>
 <div class="centered_vertically">
-  <p class="fineprint">© 2012 Sarat Tallamraju, Samvit Ramadurgam, Vamsi Chitters, Tanooj Luthra</p>
+  <p class="fineprint">© 2012 </p>
 </div>
 </div>
 </body>

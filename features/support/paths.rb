@@ -23,6 +23,8 @@ module NavigationHelpers
     when /^the profile\s?page$/
       '/profile'
 
+    when /^the payment\s?page$/
+      '/payment'
 
     when /^the user\s?page$/
       '/user'

@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
-
+# gem 'rack-ssl'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 gem 'twitter-bootstrap-rails'
@@ -21,7 +21,7 @@ gem 'wolfram-alpha'
 #gem 'mail', "~> 2.4.4"
 
 #gem 'tlsmail'
-
+gem 'email_spec'
 
 # for Heroku deployment - as described in Ap. A of ELLS book
 group :development, :test do

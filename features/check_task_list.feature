@@ -16,6 +16,7 @@ Background: tasks have been added to database
   |1        | task2                    | completed | 
   |1        | task3                    | not started | 
   |1        | task4                    | completed |
+  |1        | task5                    | pending |
 
 
 Scenario: see all the tasks 
@@ -25,12 +26,22 @@ Scenario: see all the tasks
  And I should see "task3"
  And I should see "task2"
  And I should see "task4"
+ And I should see "task5"
 
 Scenario: see the status associated with each of the tasks 
  Given I am currently on the tasks page
  Then I should see "Listing tasks"
- And I should see "completed"
- And I should see "not started"
- And I should see "completed"
- And I should see "completed"
+ And I should see "task1 completed"
+ And I should see "task2 completed"
+ And I should see "task3 not started"
+ And I should see "task4 completed"
+ And I should see "task5 pending"
+
+ And I should not see "task1 not started"
+ And I should not see "task2 pending"
+ And I should not see "task3 completed"
+ And I should not see "task4 not started"
+ And I should not see "task5 completed"
+
+
 

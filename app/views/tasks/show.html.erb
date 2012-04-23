@@ -43,6 +43,8 @@
   </p>
 </div>
 <div class="dark_shadow links rounded padded">
-  <%= link_to 'Edit', edit_task_path(@task) %> |
+  <% if false %>
+    <%= link_to 'Edit', edit_task_path(@task) %> |
+  <% end %>
   <%= link_to 'Back', tasks_path %>
 </div>
