@@ -17,7 +17,7 @@ describe Assistant do
 		Assistant.execute_task(@task)
 		Task.find_by_id(@task.id).mob_task_id.should eq("https://works.mobileworks.com/api/v2/tasks/1/")
 	end
-	it "retreives task" do
+	it "retreives task if response is new" do
 		hash = {}
 		hash["status"] = "Completed"
 		hash["answer"] = [{"Response"=>"Answer"}]
@@ -26,6 +26,16 @@ describe Assistant do
 		Task.find_by_id(@task.id).status.should eq("Completed")
 		Task.find_by_id(@task.id).answer.should eq("Response: Answer.")
 	end
+	it "retreives task if response is same" do
+		hash = {}
+		hash["status"] = "Completed"
+		hash["answer"] = "Answer"
+		MobileworksApi.stub!(:retrieve_task).with(@task).and_return(hash)
+		Assistant.retrieve_task(@task)
+		Task.find_by_id(@task.id).status.should eq("Completed")
+		Task.find_by_id(@task.id).answer.should eq("Answer")
+	end
+
 	it "updates all tasks" do
 		Task.stub!(:find).and_return([@task])
 		Assistant.stub!(:retrieve_task).and_return(true)

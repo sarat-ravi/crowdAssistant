@@ -5,7 +5,7 @@ class MobileworksApi
   #TODO: DRY out code by giving get_response() more responsibilities
 
   def self.post_task(task)
-    p task
+#    p task
 
     filtered_hash={}
 
@@ -36,7 +36,7 @@ class MobileworksApi
       response = get_response(query)
       hash_response = JSON.parse(response)
       hash_response["Location"] = hash_response["Location"].gsub("http://","https://")
-      p hash_response
+ #     p hash_response
     rescue
       #raise(MobileworksPostError, "Mobileworks Request failed")
     end
@@ -56,7 +56,7 @@ class MobileworksApi
     #begin
       #response = get_response("curl " + task.mob_task_id + " -u CrowdAssistant:CrowdAss")
       response = get_response(task.mob_task_id + " -u CrowdAssistant:CrowdAss")
-      p response
+#      p response
       hash_response = JSON.parse(response)
     #rescue
       #raise(MobileworksGetError, "Mobileworks get failed, probably due to incorrect task_uri")

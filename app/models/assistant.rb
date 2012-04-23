@@ -28,7 +28,7 @@ class Assistant < ActiveRecord::Base
   end
   def self.update_all
     tasks = Task.find(:all, :conditions => ["status NOT IN (?)", ["invalid", "complete", "done"]])
-    p "Updating #{tasks.length} tasks..."
+#    p "Updating #{tasks.length} tasks..."
     tasks.each do |t|
       Assistant.retrieve_task(t)
     end

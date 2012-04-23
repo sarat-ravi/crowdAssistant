@@ -25,4 +25,4 @@ Scenario: Charge credit card
  And I select "1" from "card-expiry-month"
  And I select "2013" from "card-expiry-year"
  And I press "Buy"
- And I should see "200"
+ Then I should see "200"

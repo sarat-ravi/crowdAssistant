@@ -13,7 +13,7 @@ class UserMailer < ActionMailer::Base
     mail(:to => @user.email, :subject => "Your task has completed")
   end
   def fetch_mail
-  	p "Fetching mail..."
+#  	p "Fetching mail..."
   	config = { :host => 'imap.gmail.com', :port => 993, :username => 'CrowdAssistant', :password => 'CrowdAss'}
   	imap = Net::IMAP.new(config[:host], config[:port], true)
   	imap.login(config[:username], config[:password])
@@ -29,7 +29,7 @@ class UserMailer < ActionMailer::Base
 	  		t = Task.create(:user_id => u.id, :instructions => task, :fields => "[{\"Reply\":\"t\"}]", :priority => 2, :workflow => "p", :redundancy => 2, :resource => "www.google.com", :resourcetype => "l")
 	  		Assistant.handle(t)
 	  	else
-	  		p "Whoops, some dude who hasn't signed up sent us an email"
+#	  		p "Whoops, some dude who hasn't signed up sent us an email"
 	  	end
   		messages_to_archive << message_id
   	end
