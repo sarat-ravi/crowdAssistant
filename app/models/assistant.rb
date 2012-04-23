@@ -13,6 +13,12 @@ class Assistant < ActiveRecord::Base
   end
   def self.retrieve_task(task)
     response = MobileworksApi.retrieve_task(task)
+    if task.status != response["status"]
+      #UserMailer.task_finished(task).deliver
+      # This line is commented because we didn't want to spam emails through GMail
+      # Richard had mentioned GMail throttles scripts and we didn't want to risk it.
+      # All Funcionality works, we have tested this manually
+    end
     task.status = response["status"]
     if response["answer"] == response["answer"].to_s
       task.answer = response["answer"]

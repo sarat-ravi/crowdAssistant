@@ -103,9 +103,9 @@ When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
 end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |text|
-  p #{text}
+  #p text
   if page.respond_to? :should
-    page.should have_content(text) or assert page.body.include?(text)
+    page.should have_content(text)
   else
     assert page.has_content?(text) or assert page.body.include?(text)
   end

@@ -72,12 +72,12 @@ class MobileworksApi
     return response
   end
 
-  def self.user_profile
-    response = get_response("https://work.mobileworks.com/api/v1/userprofile/ -u CrowdAssistant:CrowdAss")
-    hash_response = JSON.parse(response)
-    return hash_response
-    #balance = hash_response["objects"][0]["balance"]
-  end
+#  def self.user_profile
+#    response = get_response("https://work.mobileworks.com/api/v1/userprofile/ -u CrowdAssistant:CrowdAss")
+#    hash_response = JSON.parse(response)
+#    return hash_response
+#    #balance = hash_response["objects"][0]["balance"]
+#  end
 
 end
 

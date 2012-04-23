@@ -29,10 +29,13 @@ describe PaymentsController do
         assigns(:payment).should be_a(Payment)
         assigns(:payment).should be_persisted
       end
-
       it "redirects to the user" do
         post :create, {:amount => "100"}
         response.should redirect_to(user_path)
+      end
+      it "increases the balance" do
+        post :create, {:amount => "100"}
+        assert(@user.balance == 200)
       end
     end
   end

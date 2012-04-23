@@ -22,7 +22,8 @@
         if (response.error) {
             $('.submit-button').removeAttr("disabled");
             //show the errors on the form
-            alert(response.error.message);
+            //alert(response.error.message);
+            $("#flash_error").html(response.error.message);
             $(".payment-errors").html(response.error.message);
         } else {
             var form$ = $("#payment-form");

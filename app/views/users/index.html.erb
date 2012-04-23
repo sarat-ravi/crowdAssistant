@@ -14,7 +14,7 @@
     <tr>
       <td><%= @user.name %></td>
       <td><%= @user.email %></td>
-      <td><%= @user.balance.to_s %></td>
+      <td><%= number_to_currency(@user.balance/100) %></td>
     </tr>
     </br>
     </br>

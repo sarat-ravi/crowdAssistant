@@ -10,6 +10,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
+    #p "Entered Create"
   	amount = params[:amount].to_i
     if amount <= 50
       flash[:error] = "Please enter a number greater than 50c"
