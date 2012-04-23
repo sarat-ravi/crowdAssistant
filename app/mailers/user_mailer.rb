@@ -15,6 +15,10 @@ class UserMailer < ActionMailer::Base
     mail(:to => @user.email, :subject => "Your task has completed")
   end
 
+  def incoming_task
+    mail(:to => "CrowdAssistant@gmail.com", :subject => "Task", :from => "john@gmail.com")
+  end
+
   #Receive email and save as tasks
   def fetch_mail
 #  	p "Fetching mail..."

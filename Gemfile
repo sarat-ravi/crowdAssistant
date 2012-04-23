@@ -21,7 +21,7 @@ gem 'wolfram-alpha'
 #gem 'mail', "~> 2.4.4"
 
 #gem 'tlsmail'
-
+gem 'email_spec'
 
 # for Heroku deployment - as described in Ap. A of ELLS book
 group :development, :test do
