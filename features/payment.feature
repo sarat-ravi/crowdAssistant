@@ -79,17 +79,3 @@ Scenario: Charge credit card with no ccv code
  And I press "Buy"
  Then I should be on the payment page
  Then I should see "Your card's security code is invalid"
-
-@javascript
-Scenario: Charge credit card with less than 50 credits (empty is 0 credits)
- Given I am on the user page 
- And I follow "Charge Card"
- Then I should be on the payment page
- When I fill in "amount" with "25"
- And I fill in "card-number" with "4242424242424242"
- And I fill in "card-cvc" with "123"
- And I select "1" from "card-expiry-month"
- And I select "2013" from "card-expiry-year"
- And I press "Buy"
- Then I should be on the payment page
- Then I should see "Please enter a number greater than 50c"
