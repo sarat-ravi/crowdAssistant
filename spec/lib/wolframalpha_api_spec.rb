@@ -8,7 +8,7 @@ describe WolframalphaApi do
   before(:each) do
 
     builder = Nokogiri::XML::Builder.new do |xml|
-    xml.queryresult {
+    xml.queryresult(:success => "true", :error => "false") {
       xml.pod {
         xml.markup "Result 1" 
       }
@@ -21,14 +21,28 @@ describe WolframalphaApi do
     }
     end
 
-    @xml = builder.to_xml
+    @raw_xml = builder.to_xml
+    @xml = Nokogiri::XML(builder.to_xml)
     @expected_results = ["Result 1","Result 2","Result 3"]
+
+    failure = Nokogiri::XML::Builder.new do |xml|
+    xml.queryresult(:success => "false", :error => "true or false, doesn't matter") {
+      xml.error {
+        xml.msg "ERROR" 
+      }
+    }
+    end
+
+    @raw_xml = failure.to_xml
+    @fail_xml = Nokogiri::XML(failure.to_xml)
+    @expected_fail_results = nil
 
   end
 
   describe "#post_query" do
     it "should post the query and return a hash of results" do
 
+      @query = "This really doesn't matter, as get_response is stubbed"
       WolframalphaApi.stub(:get_response).and_return(@xml)
       WolframalphaApi.should_receive(:post_query).with(@query).and_return(@expected_results)
       @results = WolframalphaApi.post_query(@query)
@@ -38,9 +52,21 @@ describe WolframalphaApi do
       @results.should == @expected_results
 
     end
+
+    it "should return nil if query failed" do
+      
+      WolframalphaApi.stub(:validate_response).and_return(nil)
+      @result = WolframalphaApi.post_query("This doesn't matter because response should fail anyways")
+      @result.should == nil
+
+    end
   end
 
   describe "#get_response" do
+
+    #FIXME: This test is really sketch and wrong, need to fix
+    #This code smells
+    
     it "should send query to wolfram api and return xml document" do
 
       @query = "pi"
@@ -61,4 +87,27 @@ describe WolframalphaApi do
 
     end
   end
+
+  describe "#validate_response" do
+    
+    it "should return xml doc given query is successful" do
+      
+      @validated_xml = WolframalphaApi.validate_response(@xml)
+      #puts "validated xml: "
+      #puts @validated_xml
+      @validated_xml.should == @xml
+
+
+    end
+    it "should return nil given query is unsuccessful" do
+      
+      @validated_xml = WolframalphaApi.validate_response(@fail_xml)
+      #puts "validated xml: "
+      #puts @validated_xml
+      @validated_xml.should == nil 
+
+    end
+
+  end
+
 end
