@@ -3518,11 +3518,16 @@ a.thumbnail:hover {
   margin-left:20px;
 }
 
+.indent {
+  margin-left:20px;
+}
+
 #heading2 {
   color:#666666;
   font-family: DejaVu Sans Light, sans-serif;
 }
-#heading2_inverted {
+
+.heading2_inverted {
   color:#dddddd;
   font-family: DejaVu Sans Light, sans-serif;
 }

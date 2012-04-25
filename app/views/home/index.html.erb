@@ -1,10 +1,18 @@
 <div class="banner dark_shadow top_padded" style="background-image:url('<%=@banner_url%>');">
   <%= form_for @task, :url => {:controller => "tasks", :action => "create"}, :html => {:class => "text_field_centered"} do |f| %>
-    <h2 id="heading2_inverted">Enter any task, and Let the World do the Rest</h2>
+    <h2 class="heading2_inverted">Enter any task, and Let the World do the Rest</h2>
     <p class="paragraph_inverted" id="indent">What would you like the crowd to do for you?<p>
-    <%= f.text_field :instructions, :placeholder => "", :class => "text_field_large opaque", :id=>"indent" %>
-  
-    <%= f.submit "Create Task", :class=> "btn btn-primary btn-large" %>
+
+    <% if current_user %>
+      <%= f.text_field :instructions, :placeholder => "", :class => "text_field_large opaque", :id=>"indent" %>
+      <%= f.submit "Create Task", :class=> "btn btn-primary btn-large" %>
+    <% else %>
+      <div class="indent">
+        <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook", :class=>"float_left", :id => "fb_button") %>
+        <h3 class="heading2_inverted narrow_margin_left float_left"> Log In to Get Started</h3>
+      </div>
+    <% end %>
+
   <% end %>
 </div>
 <div class="margined centered_horizontally" style="">

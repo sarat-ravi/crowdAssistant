@@ -24,13 +24,16 @@
             <li><a href="<%= user_path %>">Profile</a></li>
           <% else %>
           <% end %>
-          <div class="thin_dark_well float_left thin_padded margin_left">
-            <i class="icon-exclamation-sign float_left"></i>
-            <div class="float_left narrow_margin_left" style="">
-              <div class="fine_print_inverted" id="flash_error"><%= flash[:error] %></div>
-              <div class="fine_print_inverted" id="flash_notice"><%= flash[:notice] %></div>
+          <% if not (flash[:error].nil? and flash[:notice].nil?) %>
+            <div class="thin_dark_well float_left thin_padded margin_left">
+              <i class="icon-exclamation-sign float_left" style="margin-top:2px;"></i>
+              <div class="float_left narrow_margin_left" style="">
+                <div class="fine_print_inverted" id="flash_error"><%= flash[:error] %></div>
+                <div class="fine_print_inverted" id="flash_notice"><%= flash[:notice] %></div>
+              </div>
             </div>
-          </div>
+          <% else %>
+          <% end %>
 
         </ul>
       </div>
@@ -40,8 +43,7 @@
             Signed in as <%= link_to current_user.name, "/user", :id=>"white_link"%>!
             <%= link_to "Sign Out", signout_path, :id =>"white_link" %>
         <% else %>
-          <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook", :id => "fb_button") %>
-        <% end %>
+          <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook", :id => "fb_button") %> <% end %>
       </div>
     </div>
   </div>
