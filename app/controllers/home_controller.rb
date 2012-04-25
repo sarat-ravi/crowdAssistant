@@ -9,6 +9,8 @@ class HomeController < ApplicationController
 
     @banner_url = view_context.image_path('crowd_graph.png') 
 
+    @task = Task.new
+
   end
 
 end

@@ -8,7 +8,9 @@ class Assistant < ActiveRecord::Base
   end
   def self.execute_task(task)
     response = MobileworksApi.post_task(task)
+    raise "response from mobileworks is nil" if response.nil?
     task.mob_task_id = response["Location"]
+    raise ("mob_task_id for task " + task.id.to_s + " is nil") if task.mob_task_id.nil?
     task.save!
   end
   def self.retrieve_task(task)

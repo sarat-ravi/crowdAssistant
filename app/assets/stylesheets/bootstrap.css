@@ -3522,6 +3522,18 @@ a.thumbnail:hover {
   color:#666666;
   font-family: DejaVu Sans Light, sans-serif;
 }
+#heading2_inverted {
+  color:#dddddd;
+  font-family: DejaVu Sans Light, sans-serif;
+}
+
+.paragraph {
+  color:#666666;
+}
+
+.paragraph_inverted {
+  color:#dddddd;
+}
 
 #unbordered_table {
   color:#dddddd; margin-top:20px; box-shadow: 0px 0px 0px #000000;
@@ -3597,8 +3609,17 @@ a.thumbnail:hover {
 }
 
 .banner {
-  height:330px;
+  height:260px;
   width:100%;
+  
+}
+
+.transparent {
+  opacity:0.5;
+}
+
+.opaque {
+  opacity:0.9;
 }
 
 .fineprint {
@@ -3606,3 +3627,22 @@ a.thumbnail:hover {
   margin:10px;
   color:#bbbbbb;
 }
+
+.text_field_centered {
+  width:700px;
+  margin:auto auto;
+
+}
+.top_padded {
+  padding-top:70px;
+
+}
+
+.text_field_large {
+  width:500px;
+  height:26px;
+  margin-top:9px;
+  font-size:18px;
+}
+
+

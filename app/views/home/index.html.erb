@@ -1,5 +1,14 @@
-<%= image_tag @banner_url, :class=>"banner dark_shadow" %>
-<div class="margined centered_vertically" style="min-width:1366px; ">
+<div class="banner dark_shadow top_padded" style="background-image:url('<%=@banner_url%>');">
+  <%= form_for @task, :url => {:controller => "tasks", :action => "create"}, :html => {:class => "text_field_centered"} do |f| %>
+    <h2 id="heading2_inverted">Enter any task, and Let the World do the Rest</h2>
+    <p class="paragraph_inverted" id="indent">What would you like the crowd to do for you?<p>
+    <%= f.text_field :instructions, :placeholder => "", :class => "text_field_large opaque", :id=>"indent" %>
+  
+    <%= f.submit "Create Task", :class=> "btn btn-primary btn-large" %>
+  <% end %>
+</div>
+</div>
+<div class="margined centered_vertically" style="min-width:1366px; ">
   <div class="text_box padded rounded span4">
     <h3 id="heading1">Welcome to Crowd Assistant</h3>
     <div id="indent">

@@ -14,6 +14,7 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = current_user.tasks.find(params[:id])
+    #Assistant.retrieve_task(@task)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,14 +46,23 @@ class TasksController < ApplicationController
     @task.user_id = current_user.id
     @task.status = "Not Started"
     @task.answer = nil
-    @task.resource = params[:task][:resource]
-    @task.resourcetype = params[:task][:resourcetype][0].chr.swapcase
-    prioritys = {"Low" => 1, "Medium" => 2, "High" => 3}
-    @task.priority = prioritys[params[:task][:priority]]
-    @task.workflow = params[:task][:workflow][0].chr.swapcase
-    @task.redundancy = params[:task][:redundancy].to_i
     @task.instructions = params[:task][:instructions]
     @task.fields = params[:task][:fields]
+    @task.resource = params[:task][:resource]
+
+    #these are more complicated tasks that can crash
+    #if params are null, so if any problems, make them default
+    begin
+      @task.resourcetype = params[:task][:resourcetype][0].chr.swapcase
+      prioritys = {"Low" => 1, "Medium" => 2, "High" => 3}
+      @task.priority = prioritys[params[:task][:priority]]
+      @task.workflow = params[:task][:workflow][0].chr.swapcase
+      @task.redundancy = params[:task][:redundancy].to_i
+    rescue
+      @task.set_defaults()
+    end
+
+    @task.handle_null_params
 
     respond_to do |format|
       if @task.save
