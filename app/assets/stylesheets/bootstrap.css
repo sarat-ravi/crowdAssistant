@@ -3499,7 +3499,7 @@ a.thumbnail:hover {
   margin:auto auto;
   padding:50px; 
   width:1000px; 
-  height:600px;
+  min-height:600px;
   background-color:#f3f3f3; 
   border-radius:10px; 
   box-shadow: 0px 0px 20px #bbbbbb;
@@ -3531,6 +3531,16 @@ a.thumbnail:hover {
   color:#666666;
 }
 
+.fine_print {
+  color:#666666;
+  font-size:10px;
+}
+
+.fine_print_inverted {
+  color:#eeeeee;
+  font-size:10px;
+}
+
 .paragraph_inverted {
   color:#dddddd;
 }
@@ -3549,6 +3559,11 @@ a.thumbnail:hover {
   float:left
 }
 
+.float_left {
+
+  float:left
+}
+
 .center_panel {
   min-width:1200px;
   height:100%;
@@ -3559,9 +3574,9 @@ a.thumbnail:hover {
 
 }
 
-.centered_vertically {
+.centered_horizontally {
 
-  width:1288px;
+  width:1360px;
   display:block;
   margin-left:auto;
   margin-right:auto;
@@ -3580,9 +3595,30 @@ a.thumbnail:hover {
   margin:20px;
 }
 
+.narrow_margined {
+  margin:10px;
+}
+
+.narrow_margin_top {
+  margin-top:10px;
+}
+
+.narrow_margin_left {
+  margin-left:10px;
+}
+
+.margin_left {
+  margin-left:20px;
+}
 .rounded {
 
   border-radius:6px;
+}
+
+.thin_dark_well {
+  border-radius:5px;
+  background:#222222;
+  padding:5px;
 }
 
 .links {

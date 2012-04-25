@@ -42,14 +42,15 @@ describe TasksController do
         Assistant.any_instance.stub(:handle).and_return(nil)
 
         expect {
-          post :create, {:task => {:resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
+          post :create, {:task => {:instructions => "instr", :fields=>'[{"Answer":"t"}]', :resource => "www.google.com", :resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
         }.to change(Task, :count).by(1)
       end
 
       it "assigns a newly created task as @task" do
         Assistant.any_instance.stub(:handle).and_return(nil)
 
-        post :create, {:task => {:resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
+        #post :create, {:task => {:resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
+        post :create, {:task => {:instructions => "instr", :fields=>'[{"Answer":"t"}]', :resource => "www.google.com", :resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
         assigns(:task).should be_a(Task)
         assigns(:task).should be_persisted
       end
@@ -57,7 +58,8 @@ describe TasksController do
       it "redirects to the created task" do
         Assistant.any_instance.stub(:handle).and_return(nil)
 
-        post :create, {:task => {:resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
+        #post :create, {:task => {:resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
+        post :create, {:task => {:instructions => "instr", :fields=>'[{"Answer":"t"}]', :resource => "www.google.com", :resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
         response.should redirect_to(Task.last)
       end
     end

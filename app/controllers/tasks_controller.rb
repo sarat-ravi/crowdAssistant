@@ -14,6 +14,7 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = current_user.tasks.find(params[:id])
+    #TODO: delete the line below
     #Assistant.retrieve_task(@task)
 
     respond_to do |format|

@@ -18,12 +18,19 @@
       <a class="brand" href="/">Crowd Assistant</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="active"><a href="<%= root_path %>">Home</a></li>
+          <li class="active float_left"><a href="<%= root_path %>">Home</a></li>
           <% if current_user %>
             <li><a href="<%= tasks_path %>">Tasks</a></li>
             <li><a href="<%= user_path %>">Profile</a></li>
           <% else %>
           <% end %>
+          <div class="thin_dark_well float_left thin_padded margin_left">
+            <i class="icon-exclamation-sign float_left"></i>
+            <div class="float_left narrow_margin_left" style="">
+              <div class="fine_print_inverted" id="flash_error"><%= flash[:error] %></div>
+              <div class="fine_print_inverted" id="flash_notice"><%= flash[:notice] %></div>
+            </div>
+          </div>
 
         </ul>
       </div>
@@ -39,8 +46,6 @@
     </div>
   </div>
 </div>
-<div id="flash_error"><%= flash[:error] %></div>
-<div id="flash_notice"><%= flash[:notice] %></div>
 <% if not current_page? root_path %>
   <div class="panel">
     <%= yield %>
