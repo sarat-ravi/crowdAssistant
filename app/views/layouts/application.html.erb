@@ -24,7 +24,8 @@
             <li><a href="<%= user_path %>">Profile</a></li>
           <% else %>
           <% end %>
-          <% if not (flash[:error].nil? and flash[:notice].nil?) %>
+          <%# if not (flash[:error].nil? and flash[:notice].nil?) %>
+          <% if true %>
             <div class="thin_dark_well float_left thin_padded margin_left">
               <i class="icon-exclamation-sign float_left" style="margin-top:2px;"></i>
               <div class="float_left narrow_margin_left" style="">

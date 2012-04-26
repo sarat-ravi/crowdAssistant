@@ -44,6 +44,8 @@
 
       <%= form_for Payment.new, :html => {:id => "payment-form", :class => "payment-form"} do |f|%>
       <div class="field">
+        
+        <div class="fine_print_inverted" id="flash_error"><%= flash[:error] %></div>
         <table style="margin:0 auto;">
             <tr>
                 <td valign="top" >Cardholder Name</td>
