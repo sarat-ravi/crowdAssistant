@@ -4,8 +4,43 @@ class Assistant < ActiveRecord::Base
   #has_many :mobworkers
   #@@mob_api_url = "https://work.mobileworks.com/api/v2/job/"
   def self.handle(task)
-    execute_task(task)
+    #execute_task(task)
+    results = ask_wolfram(task)
+    if results.nil? 
+      #this means wolfram failed to give a good result
+      execute_task(task)
+    else
+      #if wolfram succeeded, then what?
+      #are we going to save these results anywhere?
+      puts "wolfram can answer this"
+      #task.mob_task_id = "wolfram" #-----------------------------------------O
+      task.delete
+      return "wolfram" 
+    end
+    
   end
+
+  def self.update_status_for(task)
+    if wolfram_succeeded_for(task) 
+      #redirect to some page that displays wolfram results?
+      puts "lol its a wolfram task. Don't know how to retrieve it yet =D"
+    else
+      self.retrieve_task(task)
+    end
+  end
+
+  def self.wolfram_succeeded_for(task)
+    return task.mob_task_id == "wolfram" #----------------------------------O
+  end
+
+  def self.ask_wolfram(task)
+    
+    query = task.instructions
+    results = WolframalphaApi.post_query(query)
+    return results
+
+  end
+
   def self.execute_task(task)
     response = MobileworksApi.post_task(task)
     raise "response from mobileworks is nil" if response.nil?
@@ -15,6 +50,7 @@ class Assistant < ActiveRecord::Base
   end
   def self.retrieve_task(task)
     response = MobileworksApi.retrieve_task(task)
+    raise "response from mobileworks is nil. Failed to retrieve task..." if response.nil?
     if task.status != response["status"]
       #UserMailer.task_finished(task).deliver
       # This line is commented because we didn't want to spam emails through GMail

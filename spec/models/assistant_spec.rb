@@ -7,9 +7,20 @@ describe Assistant do
 	end
 	it "handles task" do
 		Assistant.stub!(:execute_task).with(@task).and_return(nil)
+		Assistant.stub!(:ask_wolfram).with(@task).and_return(nil)
 		Assistant.should_receive(:handle).with(@task)
 		Assistant.handle(@task)
 	end
+  it "should execute task if wolfram failed" do
+		Assistant.stub!(:ask_wolfram).with(@task).and_return(nil)
+		Assistant.should_receive(:execute_task).with(@task)
+		Assistant.handle(@task)
+  end
+  it "should not execute task if wolfram succeeded" do
+		Assistant.stub!(:ask_wolfram).with(@task).and_return(["<queryresult>results</queryresult>"])
+		Assistant.should_not_receive(:execute_task)
+		Assistant.handle(@task)
+  end
 	it "executes task" do
 		hash = {}
 		hash["Location"] = "https://works.mobileworks.com/api/v2/tasks/1/"
@@ -17,6 +28,28 @@ describe Assistant do
 		Assistant.execute_task(@task)
 		Task.find_by_id(@task.id).mob_task_id.should eq("https://works.mobileworks.com/api/v2/tasks/1/")
 	end
+  it "updates task status" do
+		Assistant.stub!(:wolfram_succeeded_for).with(@task).and_return(false)
+		Assistant.stub!(:retrieve_task).with(@task).and_return(nil)
+		Assistant.should_receive(:update_status_for).with(@task)
+		Assistant.update_status_for(@task)
+  end
+  it "should retrieve task from mobileworks if wolfram failed" do
+    pending("This test needs improvement")
+		Assistant.stub!(:wolfram_succeeded_for).with(@task).and_return(false)
+		Assistant.stub!(:retrieve_task).with(@task).and_return(nil)
+		Assistant.should_receive(:update_status_for).with(@task)
+		Assistant.update_status_for(@task)
+		Assistant.should_receive(:retrieve_task)
+  end
+  it "should not retrieve task from mobileworks if wolfram succeeded" do
+    pending("This test needs improvement")
+		Assistant.stub!(:wolfram_succeeded_for).with(@task).and_return(true)
+		Assistant.stub!(:retrieve_task).with(@task).and_return(nil)
+		Assistant.should_receive(:update_status_for).with(@task)
+		Assistant.should_not_receive(:retrieve_task)
+		Assistant.update_status_for(@task)
+  end
 	it "retreives task if response is new" do
 		hash = {}
 		hash["status"] = "Completed"

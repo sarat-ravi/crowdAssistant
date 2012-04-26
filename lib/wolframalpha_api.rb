@@ -14,6 +14,7 @@ class WolframalphaApi
 
     @results = @xml_response.xpath("//markup")
     @results = self.remove_tags(@results, "<markup>")
+    @results = self.extract_html(@results)
     return @results
 
   end
@@ -60,6 +61,7 @@ class WolframalphaApi
   def self.get_api_url(query)
 
     @appid = "95PVXL-VJH3UW9ATT"
+    query = URI.escape(query)
     @api_url = "'http://api.wolframalpha.com/v2/query?input=#{query}&format=html&appid=#{@appid}'"
     return @api_url
 
@@ -70,6 +72,13 @@ class WolframalphaApi
     tag_len = tag.length
     results = results.map {|result| result.to_s}
     results = results.map {|result| result[tag_len..result.length-tag_len-2]}
+    return results
+
+  end
+  def self.extract_html(results)
+    puts "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
+    results = results.map {|result| result.to_s}
+    results = results.map {|result| result[9..result.length-4]}
     return results
 
   end

@@ -1,6 +1,8 @@
 CrowdAssistant::Application.routes.draw do
 
   
+  get "result/index"
+
   resources :payments
 
   root :to => 'home#index'

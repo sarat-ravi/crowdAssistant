@@ -67,7 +67,20 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        Assistant.handle(@task)
+        query = @task.instructions
+        result = Assistant.handle(@task)
+        if result == "wolfram"
+          #This is seriously sketch. Assistant queries wolfram, 
+          #if wolfram can answer, Assistant deletes @task completely,
+          #and returns "wolfram" in Assistant.handle(task)
+          #the query is sent in params hash to a result controller,
+          #WHICH makes the result controller query wolfram AGAIN,
+          #this time to actually display the results. 
+          #NOTE: This implementation is just to debugg - will be changed later.
+          #NOTE: This redirect is about to rape several tests
+          session[:wolfram_query] = query
+          format.html { redirect_to '/result/index.html', notice: 'Wolfram can answer this question.' }
+        end
         current_user.update_attributes(:balance => current_user.balance - 15)
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
