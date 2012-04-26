@@ -16,7 +16,12 @@
     <td><%= task.created_at %><p>&nbsp</p></td>
     <td><%= task.instructions %></td>
     <td><%= task.status %></td>
-    <td><%= task.answer %></td>
+    <% if Assistant.wolfram_succeeded_for(task) %>
+      <td><%= "See Wolfram Results Page" %></td>
+    <% else %>
+      <td><%= task.answer %></td>
+    <% end %>
+
     <td><%= link_to 'Show', task %></td>
     <% if false %>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>

@@ -14,7 +14,17 @@
   
   <p>
     <b>Answer:</b>
-    <%= @task.answer %>
+    <% if @wolfram_results.nil? %>
+      <%= @task.answer %>
+    <% else %>
+      <div class="well" style="background:#ffffff">
+        <% @wolfram_results.each do |result| %>
+          <div class="" style="background:#ffffff">
+            <%= result.html_safe %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </p>
   
   <p>

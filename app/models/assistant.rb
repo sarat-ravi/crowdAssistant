@@ -14,7 +14,12 @@ class Assistant < ActiveRecord::Base
       #are we going to save these results anywhere?
       puts "wolfram can answer this"
       #task.mob_task_id = "wolfram" #-----------------------------------------O
-      task.delete
+      #task.delete
+      #add_wolfram_attrs_for(task)
+      task.mob_task_id = "wolfram"
+      task.answer = results.to_json
+      task.status = "done"
+      task.save!
       return "wolfram" 
     end
     
@@ -31,6 +36,10 @@ class Assistant < ActiveRecord::Base
 
   def self.wolfram_succeeded_for(task)
     return task.mob_task_id == "wolfram" #----------------------------------O
+  end
+  
+  def self.add_wolfram_attrs_for(task)
+    task.mob_task_id = "wolfram"
   end
 
   def self.ask_wolfram(task)

@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = current_user.tasks
+    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,10 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = current_user.tasks.find(params[:id])
+    @wolfram_results = nil;
+    if Assistant.wolfram_succeeded_for(@task)
+      @wolfram_results = JSON.parse(@task.answer)
+    end
     #TODO: delete the line below
     #Assistant.retrieve_task(@task)
 
@@ -67,9 +72,10 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        query = @task.instructions
+        task_id = @task.id
         result = Assistant.handle(@task)
-        if result == "wolfram"
+        if Assistant.wolfram_succeeded_for(@task) 
+          flash[:notice] = "Task Completed by Wolfram"
           #This is seriously sketch. Assistant queries wolfram, 
           #if wolfram can answer, Assistant deletes @task completely,
           #and returns "wolfram" in Assistant.handle(task)
@@ -78,8 +84,8 @@ class TasksController < ApplicationController
           #this time to actually display the results. 
           #NOTE: This implementation is just to debugg - will be changed later.
           #NOTE: This redirect is about to rape several tests
-          session[:wolfram_query] = query
-          format.html { redirect_to '/result/index.html', notice: 'Wolfram can answer this question.' }
+          #session[:wolfram_task_id] = task_id 
+          #format.html { redirect_to '/result/index.html', notice: 'Wolfram can answer this question.' }
         end
         current_user.update_attributes(:balance => current_user.balance - 15)
         format.html { redirect_to @task, notice: 'Task was successfully created.' }

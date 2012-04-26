@@ -76,8 +76,7 @@ class WolframalphaApi
 
   end
   def self.extract_html(results)
-    puts "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
-    results = results.map {|result| result.to_s}
+    results = results.map {|result| result.to_s.html_safe}
     results = results.map {|result| result[9..result.length-4]}
     return results
 
