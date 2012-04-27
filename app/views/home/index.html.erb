@@ -4,7 +4,7 @@
     <p class="paragraph_inverted" id="indent">What would you like the crowd to do for you?<p>
 
     <% if current_user %>
-      <%= f.text_field :instructions, :placeholder => "", :class => "text_field_large opaque", :id=>"indent" %>
+      <%= f.text_field :instructions, :placeholder => "", :class => "text_field_large opaque indent", :id=>"task_bar" %>
       <%= f.submit "Create Task", :class=> "btn btn-primary btn-large" %>
     <% else %>
       <div class="indent">
@@ -12,6 +12,8 @@
         <h3 class="heading2_inverted narrow_margin_left float_left"> Log In to Get Started</h3>
       </div>
     <% end %>
+    <%= link_to "Advanced Search", new_task_path, :class=>"white float_left indent fine_print_inverted", :id => "white_link" %>
+    
 
   <% end %>
 </div>

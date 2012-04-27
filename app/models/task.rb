@@ -25,7 +25,6 @@ class Task < ActiveRecord::Base
     self.resource = "www.google.com" if not_set(self.resource)
     self.resourcetype = "l" if not_set(self.resourcetype)
     self.fields = '[{"Answer":"t"}]' if not_set(self.fields)
-    puts "helloo"
 
   end
   def not_set(var)
