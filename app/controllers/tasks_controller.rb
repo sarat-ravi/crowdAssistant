@@ -17,7 +17,8 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find(params[:id])
     @wolfram_results = nil;
     if Assistant.wolfram_succeeded_for(@task)
-      @wolfram_results = JSON.parse(@task.answer)
+      #@wolfram_results = JSON.parse(@task.answer)
+      @wolfram_results = WolframalphaApi.post_query(@task.instructions) 
     end
     #TODO: delete the line below
     #Assistant.retrieve_task(@task)
