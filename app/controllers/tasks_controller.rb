@@ -48,6 +48,12 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
+    p "were inside the create task method of the tasksd comtroller"
+    if not current_user
+      session[:instructions] = params[:task][:instructions]
+      redirect_to "/auth/facebook" and return
+    end
+    session[:instructions] = nil
 
     @task = Task.new(params[:task])
     @task.user_id = current_user.id
