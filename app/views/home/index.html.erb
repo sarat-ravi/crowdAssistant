@@ -2,19 +2,13 @@
   <%= form_for @task, :url => {:controller => "tasks", :action => "create"}, :html => {:class => "text_field_centered"} do |f| %>
     <h2 class="heading2_inverted">Enter any task, and Let the World do the Rest</h2>
     <p class="paragraph_inverted" id="indent">What would you like the crowd to do for you?<p>
-
-    <% if current_user %>
-      <%= f.text_field :instructions, :placeholder => "", :class => "text_field_large opaque indent", :id=>"task_bar" %>
-      <%= f.submit "Create Task", :class=> "btn btn-primary btn-large" %>
-      <%= link_to "Advanced Search", new_task_path, :class=>"white float_left indent fine_print_inverted", :id => "white_link" %>
+    <% if session[:instructions] %> 
+      <%= f.text_field :instructions, :value => session[:instructions], :placeholder => "", :class => "text_field_large opaque indent", :id=>"task_bar" %>
     <% else %>
-      <div class="indent">
-        <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook", :class=>"float_left", :id => "fb_button") %>
-        <h3 class="heading2_inverted narrow_margin_left float_left"> Log In to Get Started</h3>
-      </div>
-    <% end %>
-    
-
+      <%= f.text_field :instructions, :placeholder => "", :class => "text_field_large opaque indent", :id=>"task_bar" %>
+    <% end %>  
+    <%= f.submit "Create Task", :class=> "btn btn-primary btn-large" %>
+    <%= link_to "Advanced Search", new_task_path, :class=>"white float_left indent fine_print_inverted", :id => "white_link" %>
   <% end %>
 </div>
 <div class="margined centered_horizontally" style="">

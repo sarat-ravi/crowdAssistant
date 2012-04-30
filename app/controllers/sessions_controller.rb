@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     pic_url = auth["info"]["image"].sub!(/type=square/, 'type=large')
     profile = Profile.find_by_user_id(user.id) || Profile.create(:user_id=>user.id, :pic_url => auth["info"]["image"])
     session[:user_id] = user.id
-    redirect_to '/user', :notice => "Signed in!"
+    redirect_to '/', :notice => "Signed in!"
   end
 
   def destroy
