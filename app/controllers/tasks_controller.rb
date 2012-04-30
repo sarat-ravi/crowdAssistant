@@ -54,14 +54,25 @@ class TasksController < ApplicationController
       redirect_to "/auth/facebook" and return
     end
     session[:instructions] = nil
-
-    @task = Task.new(params[:task])
+    @task = Task.new(params[:path])
+    if params[:task][:path]
+      path = DataFile.save(params[:task])
+      @task.path = path
+    end
     @task.user_id = current_user.id
     @task.status = "Not Started"
     @task.answer = nil
     @task.instructions = params[:task][:instructions]
     @task.fields = params[:task][:fields]
-    @task.resource = params[:task][:resource]
+    p @task.path
+    p "--------------------------------__"
+    if @task.path
+      @task.resource = request.host_with_port + "/" + @task.path
+    else
+      @task.resource = params[:task][:resource]
+    end
+    p request.host_with_port + "/" + @task.path
+    p @task.resource
 
     #these are more complicated tasks that can crash
     #if params are null, so if any problems, make them default
@@ -72,10 +83,12 @@ class TasksController < ApplicationController
       @task.workflow = params[:task][:workflow][0].chr.swapcase
       @task.redundancy = params[:task][:redundancy].to_i
     rescue
-      @task.set_defaults()
+      @task.set_defaults_if_null()
     end
 
     @task.handle_null_params
+
+    p @task
 
     respond_to do |format|
       if @task.save

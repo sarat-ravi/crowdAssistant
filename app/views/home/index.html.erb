@@ -7,9 +7,10 @@
     <% else %>
       <%= f.text_field :instructions, :placeholder => "", :class => "text_field_large opaque indent", :id=>"task_bar" %>
     <% end %>  
-    <%= f.submit "Create Task", :class=> "btn btn-primary btn-large" %>
-    <%= link_to "Advanced Search", new_task_path, :class=>"white float_left indent fine_print_inverted", :id => "white_link" %>
+    <%= f.submit "Create Task", :class=> "btn btn-primary btn-large" %><br />
+    Upload File (Optional) <%= f.file_field :path %>    
   <% end %>
+    <%= link_to "Advanced Search", new_task_path, :class=>"white float_left indent fine_print_inverted", :id => "white_link" %>
 </div>
 <div class="margined centered_horizontally" style="">
   <div class="text_box padded rounded span4">

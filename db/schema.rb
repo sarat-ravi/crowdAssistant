@@ -11,10 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120419191502) do
+ActiveRecord::Schema.define(:version => 20120430035402) do
 
   create_table "assistants", :force => true do |t|
     t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "data_files", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120419191502) do
     t.string   "mob_task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "path"
   end
 
   create_table "users", :force => true do |t|
