@@ -12,40 +12,39 @@
   <% end %>
     <%= link_to "Advanced Search", new_task_path, :class=>"white float_left indent fine_print_inverted", :id => "white_link" %>
 </div>
-<div class="margined centered_horizontally" style="">
-  <div class="text_box padded rounded span4">
+<div class="margined" style="width:1090px; margin:auto auto">
+  <div class="text_box padded narrow_margined float_left ">
     <h3 id="heading1">Welcome to Crowd Assistant</h3>
     <div id="indent">
       <h5 id="heading2">Let the world work for you</h5>
-      <p>&nbsp</p>
       <h4 id="heading2"><%=@welcome_message%></h4>
       <% if current_user.nil? == false %>
-        <%= link_to '- View User Profile', user_path %>
+        <%= link_to '- View User Profile', user_path, :class=>"link" %>
         <br>
-        <%= link_to '- View Tasks', tasks_path %>
+        <%= link_to '- View Tasks', tasks_path, :class=>"link" %>
       <% end %>
     </div>
   </div>
-  <div class="text_box padded rounded span4">
+  <div class="text_box padded narrow_margined float_left ">
     <h3 id="heading1">Create Tasks</h3>
     <div id="indent">
       <p>Type in anything you want, from restaurant<br>
       advice to math questions, and let the crowd work for you.
       Click link below to get started!</p>
       <% if current_user.nil? == false %>
-        <%= link_to '- View Tasks', tasks_path %>
+        <%= link_to '- View Tasks', tasks_path, :class=>"link" %>
       <% end %>
     </div>
   </div>
   
-  <div class="text_box padded rounded span4">
+  <div class="text_box padded narrow_margined float_left ">
     <h3 id="heading1">Create Your Profile</h3>
     <div id="indent">
       <p>Set your likes, dislikes, contact information, or basically
       anything you think the crowd should know.
       Click the link below to get started</p>
       <% if current_user.nil? == false %>
-        <%= link_to '- View User Profile', user_path %>
+        <%= link_to '- View User Profile', user_path, :class=>"link" %>
       <% end %>
     </div>
   </div>

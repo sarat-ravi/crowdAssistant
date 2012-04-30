@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     @welcome_message = "Welcome, #{@current_user.name}." unless @current_user.nil?
 
     @banner_url = view_context.image_path('crowd_graph.png') 
+    @navbar_image_url = view_context.image_path('clean_textile.png') 
 
     @task = Task.new
 
