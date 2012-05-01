@@ -61,6 +61,7 @@ class WolframalphaApi
   def self.get_api_url(query)
 
     @appid = "95PVXL-VJH3UW9ATT"
+    query.gsub!(/\\|'|"/) { |c| "" }
     query = URI.escape(query)
     @api_url = "'http://api.wolframalpha.com/v2/query?input=#{query}&format=html&appid=#{@appid}'"
     return @api_url

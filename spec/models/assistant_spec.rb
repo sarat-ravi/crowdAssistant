@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe Assistant do
 	before(:each) do
-		@task = Task.create(:status => "Not started", :answer => [{"Response"=>"Answer"}], :mob_task_id=> "www.google.com")
-		@task2 = Task.create(:status => "Completed", :answer => [{"Response"=>"Answer"}], :mob_task_id=>"www.google.com")
+		@user = User.create(:email => "john@gmail.com")
+		@task = Task.create(:user_id => @user.id, :status => "Not started", :answer => [{"Response"=>"Answer"}], :mob_task_id=> "www.google.com")
+		@task2 = Task.create(:user_id => @user.id, :status => "Completed", :answer => [{"Response"=>"Answer"}], :mob_task_id=>"www.google.com")
 	end
 	it "handles task" do
 		Assistant.stub!(:execute_task).with(@task).and_return(nil)

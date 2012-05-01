@@ -3549,10 +3549,11 @@ a.thumbnail:hover {
 }
 
 .fine_print {
-  color:#666666;
+  color:black;
   font-size:10px;
 }
-
+.black {
+}
 .fine_print_inverted {
   color:#eeeeee;
   font-size:10px;
@@ -3643,6 +3644,20 @@ a.thumbnail:hover {
   background:#eeeeee;
   padding:5px;
 }
+.red_background{
+  background:#FC7C7C;
+}
+.center_form{
+  margin-left:200px;
+  margin-bottom:10px;
+  color:#FC7C7C;
+}
+.yellow_background{
+  background:#7c7cfc;
+}
+.green_background{
+  background:#7dbd7d;
+}
 .links {
   background:#ffffff;
   padding:20px;
@@ -3708,7 +3723,6 @@ a.thumbnail:hover {
 }
 
 .task_well {
-  background-color:#dddddd; 
   height:220px;
   width:250px;
   position:relative;

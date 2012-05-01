@@ -56,7 +56,7 @@ describe WolframalphaApi do
     it "should return nil if query failed" do
       
       WolframalphaApi.stub(:validate_response).and_return(nil)
-      @result = WolframalphaApi.post_query("This doesn't matter because response should fail anyways")
+      @result = WolframalphaApi.post_query("This doesnt matter because response should fail anyways")
       @result.should == nil
 
     end

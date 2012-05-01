@@ -39,6 +39,8 @@ describe UserMailer do
 			array.stub!(:[]).and_return(header)
 			header.stub!(:mailbox).and_return("john")
 			header.stub!(:host).and_return("gmail.com")
+			message.stub!(:gsub).and_return(message)
+
 			User.should_receive(:find_by_email).with("john@gmail.com").and_return(user)
 			Task.should_receive(:create).and_return(task)
 			Assistant.should_receive(:handle).with(task)

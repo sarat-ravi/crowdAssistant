@@ -3,7 +3,11 @@
 
 <div style="min-height:10000px">
 <% @tasks.each do |task| %>
-  <div class="rounded padded margined float_left task_well">
+  <% if task.status == "done" %>
+  <div class="green_background rounded padded margined float_left task_well">
+  <% else %>
+  <div class="red_background rounded padded margined float_left task_well">
+  <% end %>
     <p id="heading1" style="font-size:24px;">Status: <%= task.status %></p>
     <p id="heading1" style="font-size:17px;">Task: <%= task.instructions %></p>
     <div class="answer_well well padded">
