@@ -57,6 +57,10 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
+    if params[:task][:instructions] == ""
+      flash[:error] = "Please fill in a task"
+      redirect_to "/", error: 'Please enter a task.' and return
+    end
     if not current_user
       session[:instructions] = params[:task][:instructions]
       redirect_to "/auth/facebook" and return
