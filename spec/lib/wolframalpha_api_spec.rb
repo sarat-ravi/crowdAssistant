@@ -41,29 +41,28 @@ describe WolframalphaApi do
 
   describe "#post_query" do
     it "should post the query and return a hash of results" do
-
       @query = "This really doesn't matter, as get_response is stubbed"
-      WolframalphaApi.stub(:get_response).and_return(@xml)
-      WolframalphaApi.stub(:validate_response).and_return(@xml)
-      WolframalphaApi.should_receive(:post_query).with(@query).and_return(@expected_results)
+      WolframalphaApi.stub!(:get_response).and_return(@xml)
+      WolframalphaApi.stub!(:validate_response).and_return(nil)
       @results = WolframalphaApi.post_query(@query)
 
       #puts @results.to_s
       
-      @results.should == @expected_results
+      @results.should == nil
 
     end
     it "should post the query if xml is true" do
       @query = "This really doesn't matter, as get_response is stubbed"
-      WolframalphaApi.stub(:get_response).and_return(@xml)
-      WolframalphaApi.should_receive(:post_query).with(@query).and_return(@expected_results)
-      @results = WolframalphaApi.post_query(@query)
-      @results.should == @expected_results
-
+      WolframalphaApi.stub!(:get_response).and_return(@xml)
+      WolframalphaApi.stub!(:validate_response).and_return(@xml)
+      @xml.stub!(:xpath).and_return(@xml)
+      @xml.stub!(:remove_tags).and_return(@xml)
+      @xml.stub!(:extract_html).and_return(@xml)
+      WolframalphaApi.post_query(@query).should_not == nil
     end
     it "should return nil if query failed" do
       
-      WolframalphaApi.stub(:validate_response).and_return(nil)
+      WolframalphaApi.stub!(:validate_response).and_return(nil)
       @result = WolframalphaApi.post_query("This doesnt matter because response should fail anyways")
       @result.should == nil
 
@@ -85,7 +84,7 @@ describe WolframalphaApi do
         config.strict
       end
 
-      WolframalphaApi.stub(:get_api_url).and_return(@api_url)
+      WolframalphaApi.stub!(:get_api_url).and_return(@api_url)
       WolframalphaApi.should_receive(:get_response).with(@query).and_return(@expected_xml)
       @result = WolframalphaApi.get_response(@query)
 

@@ -22,12 +22,8 @@ class TasksController < ApplicationController
 
     images_timed_out = current_time > (task_time + wolfram_timeout_period)
     
-    if Assistant.wolfram_succeeded_for(@task) 
-      if images_timed_out 
-        @wolfram_results = WolframalphaApi.post_query(@task.instructions) 
-      else
-        @wolfram_results = JSON.parse(@task.answer)
-      end
+    if Assistant.wolfram_succeeded_for(@task)
+      @wolfram_results = images_timed_out ? WolframalphaApi.post_query(@task.instructions) : JSON.parse(@task.answer)
     end
     #TODO: delete the line below
     #Assistant.retrieve_task(@task)
@@ -93,7 +89,7 @@ class TasksController < ApplicationController
       @task.set_defaults_if_null()
     end
 
-    @task.handle_null_params
+    @task.set_defaults_if_null
 
     respond_to do |format|
       if @task.save

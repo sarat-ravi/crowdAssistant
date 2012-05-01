@@ -10,13 +10,12 @@ class WolframalphaApi
     @xml_response = self.get_response(query)
     @xml_response = self.validate_response(@xml_response)
 
-    return nil if @xml_response.nil?
-
-    @results = @xml_response.xpath("//markup")
-    @results = self.remove_tags(@results, "<markup>")
-    @results = self.extract_html(@results)
-    return @results
-
+    if @xml_response
+      @xml_response = @xml_response.xpath("//markup")
+      @xml_response = self.remove_tags(@xml_response, "<markup>")
+      @xml_response = self.extract_html(@xml_response)
+    end
+    return @xml_response
   end
 
   def self.get_response(query)
@@ -41,10 +40,7 @@ class WolframalphaApi
       return xml_response
     elsif @query_success == "false"
       return nil
-    else
-      raise "queryresult success attr is neither true or false, which is impossible"
     end
-
     return nil
     
   end
