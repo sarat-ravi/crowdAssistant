@@ -18,7 +18,6 @@ Scenario: upload a file
   And I press "Create Task"
   Then I should be on the first task page
   And I should see "This is a file"
-  And I should see "robots.txt"
 
 @wip
 Scenario: send the file as a resource
