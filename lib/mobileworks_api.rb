@@ -67,7 +67,6 @@ class MobileworksApi
   end
 
   def self.get_response(request)
-    p request
     response = %x(curl -s #{request})
     return response
   end

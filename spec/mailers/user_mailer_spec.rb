@@ -13,6 +13,12 @@ describe UserMailer do
 		mail.to[0].should eq(user.email)
 		mail.subject.should eq("Your task has completed")
 	end
+	it "Sends task to itself" do
+		user = User.create(:email=>"CrowdAssistant@gmail.com")
+		mail = UserMailer.incoming_task
+		mail.to[0].should eq(user.email)
+		mail.subject.should eq("Task")
+	end
 	describe "fetches email"
 		before(:each) do
 			config = { :host => 'imap.gmail.com', :port => 993, :username => 'CrowdAssistant', :password => 'CrowdAss'}

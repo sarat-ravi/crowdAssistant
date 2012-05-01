@@ -11,6 +11,9 @@ describe TasksController do
     @tasks = @user.tasks << Task.create!
     @tasks = @user.tasks << Task.create!
     @task = @user.tasks.first
+    @task.created_at = Time.now + 86400
+    @task.save!
+    @task2 = Task.last
     controller.stub!(:current_user).and_return(@user)
   end
 
@@ -23,6 +26,23 @@ describe TasksController do
 
   describe "GET show" do
     it "assigns the requested task as @task" do
+      get :show, {:id => @task.to_param}, valid_session
+      assigns(:task).should eq(@task)
+    end
+  end
+
+  describe "GET show" do
+    it "enters the if loop" do
+      Assistant.stub!(:wolfram_succeeded_for).and_return(true)
+      WolframalphaApi.stub!(:post_query).and_return(true)
+      JSON.stub!(:parse).and_return(true)
+      get :show, {:id => @task2.to_param}, valid_session
+      assigns(:task).should eq(@task2)
+    end
+    it "enters the if loop and goes to second one" do
+      Assistant.stub!(:wolfram_succeeded_for).and_return(true)
+      WolframalphaApi.stub!(:post_query).and_return(true)
+      JSON.stub!(:parse).and_return(true)
       get :show, {:id => @task.to_param}, valid_session
       assigns(:task).should eq(@task)
     end
@@ -45,6 +65,29 @@ describe TasksController do
         }.to change(Task, :count).by(1)
       end
 
+      it "redirects to the home on emtpy" do
+        #Assistant.any_instance.stub(:handle).and_return(nil)
+        post :create, {:task => {:instructions => "", :fields=>'[{"Answer":"t"}]', :resource => "www.google.com", :resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
+        response.should redirect_to("/")
+      end
+
+      it 'redirects to auth if not signed in' do
+        controller.stub!(:current_user).and_return(nil)
+        post :create, {:task => {:instructions => "", :fields=>'[{"Answer":"t"}]', :resource => "www.google.com", :resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
+        #response.should redirect_to("/auth/facebook")
+        response.should redirect_to("/")
+      end
+
+      it "sets the path properly" do
+        Assistant.any_instance.stub(:handle).and_return(nil)
+        DataFile.stub!(:save).and_return("/image.txt")
+        #post :create, {:task => {:resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
+        post :create, {:task => {:path=>"/image.txt", :instructions => "instr", :fields=>'[{"Answer":"t"}]', :resource => "www.google.com", :resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
+        assigns(:task).should be_a(Task)
+        assigns(:task).should be_persisted
+      end
+
+
       it "assigns a newly created task as @task" do
         Assistant.any_instance.stub(:handle).and_return(nil)
 
@@ -60,26 +103,6 @@ describe TasksController do
         #post :create, {:task => {:resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
         post :create, {:task => {:instructions => "instr", :fields=>'[{"Answer":"t"}]', :resource => "www.google.com", :resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
         response.should redirect_to(Task.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved task as @task" do
-        Assistant.any_instance.stub(:handle).and_return(nil)
-
-        # Trigger the behavior that occurs when invalid params are submitted
-        Task.any_instance.stub(:save).and_return(false)
-        post :create, {:task => {:resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
-        assigns(:task).should be_a_new(Task)
-      end
-
-      it "re-renders the 'new' template" do
-        Assistant.any_instance.stub(:handle).and_return(nil)
-
-        # Trigger the behavior that occurs when invalid params are submitted
-        Task.any_instance.stub(:save).and_return(false)
-        post :create, {:task => {:resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
-        response.should render_template("new")
       end
     end
   end
