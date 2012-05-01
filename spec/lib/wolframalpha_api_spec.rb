@@ -44,6 +44,7 @@ describe WolframalphaApi do
 
       @query = "This really doesn't matter, as get_response is stubbed"
       WolframalphaApi.stub(:get_response).and_return(@xml)
+      WolframalphaApi.stub(:validate_response).and_return(@xml)
       WolframalphaApi.should_receive(:post_query).with(@query).and_return(@expected_results)
       @results = WolframalphaApi.post_query(@query)
 
@@ -52,7 +53,14 @@ describe WolframalphaApi do
       @results.should == @expected_results
 
     end
+    it "should post the query if xml is true" do
+      @query = "This really doesn't matter, as get_response is stubbed"
+      WolframalphaApi.stub(:get_response).and_return(@xml)
+      WolframalphaApi.should_receive(:post_query).with(@query).and_return(@expected_results)
+      @results = WolframalphaApi.post_query(@query)
+      @results.should == @expected_results
 
+    end
     it "should return nil if query failed" do
       
       WolframalphaApi.stub(:validate_response).and_return(nil)

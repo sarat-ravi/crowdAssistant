@@ -26,11 +26,11 @@ class Assistant < ActiveRecord::Base
   end
 
   def self.update_status_for(task)
-    if wolfram_succeeded_for(task) 
+    if Assistant.wolfram_succeeded_for(task) 
       #redirect to some page that displays wolfram results?
       #puts "lol its a wolfram task. Don't know how to retrieve it yet =D"
     else
-      self.retrieve_task(task)
+      Assistant.retrieve_task(task)
     end
   end
 
@@ -38,10 +38,6 @@ class Assistant < ActiveRecord::Base
     return task.mob_task_id == "wolfram" #----------------------------------O
   end
   
-  def self.add_wolfram_attrs_for(task)
-    task.mob_task_id = "wolfram"
-  end
-
   def self.ask_wolfram(task)
     
     query = task.instructions
