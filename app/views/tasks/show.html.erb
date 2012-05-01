@@ -1,18 +1,17 @@
 <h1 id="heading1">Task</h1>
 <p id="notice"><%= notice %></p>
 
-<div class="padded">
-  <p>
-    <b>Task started:</b>
-    <%= @task.task_date %>
-  </p>
+<div class="padded well">
   
-  <p>
-    <b>Status:</b>
-    <%= @task.status %>
+
+  <p id="heading2" style="font-size:27px;">
+    <b>Question:</b>
+    <%= @task.instructions %>
   </p>
+
+  <p>&nbsp</p>
   
-  <p>
+  <p id="heading2" style="font-size:20px;">
     <b>Answer:</b>
     <% if @wolfram_results.nil? %>
       <%= @task.answer %>
@@ -26,35 +25,20 @@
       </div>
     <% end %>
   </p>
+
+  <% if @task.status == "done" %>
+    <p class="alert alert-success" id="heading2" style="font-size:17px;">
+      <b>Status:</b>
+      <%= @task.status %>
+    </p>
+  <% else %>
+    <p class="alert alert-error" id="heading2" style="font-size:17px;">
+      <b>Status:</b>
+      <%= @task.status %>
+    </p>
+  <% end %>
   
-  <p>
-    <b>Resource:</b>
-    <%= @task.resource %>
-  </p>
-  <p>
-    <b>Resource Type:</b>
-    <%= @task.resourcetype %>
-  </p>
-  <p>
-    <b>Priority:</b>
-    <%= @task.priority %>
-  </p>
-  <p>
-    <b>Workflow:</b>
-    <%= @task.workflow %>
-  </p>
-  <p>
-    <b>Redundancy:</b>
-    <%= @task.redundancy %>
-  </p>
-  <p>
-    <b>Instructions:</b>
-    <%= @task.instructions %>
-  </p>
-  <p>
-    <b>Path:</b>
-    <%= @task.path %>
-  </p>
+  
 
 </div>
 <div class="dark_shadow links rounded padded">
