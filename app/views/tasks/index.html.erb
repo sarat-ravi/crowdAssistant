@@ -1,6 +1,5 @@
 <h1 id="heading1">Listing tasks</h1>
 
-
 <div style="min-height:10000px">
 <% @tasks.each do |task| %>
   <% if task.status == "done" %>
@@ -10,6 +9,7 @@
   <% end %>
     <p id="heading1" style="font-size:24px;">Status: <%= task.status %></p>
     <p id="heading1" style="font-size:17px;">Task: <%= task.instructions %></p>
+    <%= link_to 'Show', task %>
     <div class="answer_well well padded">
       <p>Answer:</p>
       <% if Assistant.wolfram_succeeded_for(task) %>
@@ -22,39 +22,9 @@
 <% end %>
 </div>
 
-<% if false %>
-  <table class="table table-striped">
-    <tr>
-      <th>Task date</th>
-      <th>Task</th>
-      <th>Status</th>
-      <th>Response</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  
-  <% @tasks.each do |task| %>
-    <tr class="hover">
-      <td><%= task.created_at %><p>&nbsp</p></td>
-      <td><%= task.instructions %></td>
-      <td><%= task.status %></td>
-      <% if Assistant.wolfram_succeeded_for(task) %>
-        <td><%= "See Wolfram Results Page" %></td>
-      <% else %>
-        <td><%= task.answer %></td>
-      <% end %>
-  
-      <td><%= link_to 'Show', task %></td>
-      <% if false %>
-      <td><%= link_to 'Edit', edit_task_path(task) %></td>
-      <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>
-      <% end %>
-    </tr>
-  <% end %>
-  </table>
-<% end %>
 
-<br />
+<div class="invisible">
+  <%= link_to 'New Task', new_task_path %>
+</div>
 
 

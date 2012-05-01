@@ -3723,7 +3723,7 @@ a.thumbnail:hover {
 }
 
 .task_well {
-  height:220px;
+  height:240px;
   width:250px;
   position:relative;
 }
@@ -3732,7 +3732,7 @@ a.thumbnail:hover {
   background-color:#eeeeee;
   position:absolute;
   bottom:0px;
-  top:120px;
+  top:130px;
   width:210px;
 }
 
