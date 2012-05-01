@@ -20,7 +20,7 @@ describe TasksController do
   describe "GET index" do
     it "assigns all tasks as @tasks" do
       get :index, {}, valid_session
-      assigns(:tasks).should eq(@tasks)
+      assigns(:tasks).should eq(@tasks.reverse!)
     end
   end
 
@@ -82,7 +82,7 @@ describe TasksController do
         Assistant.any_instance.stub(:handle).and_return(nil)
         DataFile.stub!(:save).and_return("/image.txt")
         #post :create, {:task => {:resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
-        post :create, {:task => {:path=>"/image.txt", :instructions => "instr", :fields=>'[{"Answer":"t"}]', :resource => "www.google.com", :resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
+        post :create, {:path=>"/image.txt", :task => { :instructions => "instr", :fields=>'[{"Answer":"t"}]', :resource => "www.google.com", :resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
         assigns(:task).should be_a(Task)
         assigns(:task).should be_persisted
       end
