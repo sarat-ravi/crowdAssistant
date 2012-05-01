@@ -3707,4 +3707,19 @@ a.thumbnail:hover {
   background-image:url('clean_textile.png');
 }
 
+.task_well {
+  background-color:#dddddd; 
+  height:220px;
+  width:250px;
+  position:relative;
+}
+
+.answer_well {
+  background-color:#eeeeee;
+  position:absolute;
+  bottom:0px;
+  top:120px;
+  width:210px;
+}
+
 
