@@ -36,7 +36,8 @@ class UserMailer < ActionMailer::Base
 #      p u
   		if u
 	  		#Why does an empty resource and resourcetype fail?
-	  		t = Task.create(:user_id => u.id, :instructions => task, :fields => "[{\"Reply\":\"t\"}]", :priority => 2, :workflow => "p", :redundancy => 2, :resource => "www.google.com", :resourcetype => "l")
+        task = task.gsub("=\r\n", "")
+	  		t = Task.create(:user_id => u.id, :instructions => task, :fields => "[{\"Reply\":\"t\"}]", :priority => 2, :workflow => "p", :redundancy => 2, :resource => "www.google.com", :resourcetype => "l", :status=>"Not Started")
 	  		Assistant.handle(t)
 	  	else
 #	  		p "Whoops, some dude who hasn't signed up sent us an email"

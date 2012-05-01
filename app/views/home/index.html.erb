@@ -1,6 +1,6 @@
 <div class="banner dark_shadow top_padded" style="background-image:url('<%=@banner_url%>');">
   <%= form_for @task, :url => {:controller => "tasks", :action => "create"}, :html => {:class => "text_field_centered"} do |f| %>
-    <h2 class="heading2_inverted">Enter any task, and Let the World do the Rest</h2>
+    <h2 class="heading2_inverted", id="indent">Enter any task, and Let the World do the Rest</h2>
     <p class="paragraph_inverted" id="indent">What would you like the crowd to do for you?<p>
     <% if session[:instructions] %> 
       <%= f.text_field :instructions, :value => session[:instructions], :placeholder => "", :class => "text_field_large opaque indent", :id=>"task_bar" %>
@@ -8,32 +8,32 @@
       <%= f.text_field :instructions, :placeholder => "", :class => "text_field_large opaque indent", :id=>"task_bar" %>
     <% end %>  
     <%= f.submit "Create Task", :class=> "btn btn-primary btn-large" %><br />
-    Upload File (Optional) <%= f.file_field :path %>    
+    <div class="paragraph_inverted" id="indent">
+    Upload File (Optional) <%= f.file_field :path %> 
+    </div>
+        <%= link_to "Advanced Task", new_task_path, :class=>"white indent fine_print_inverted", :id => "white_link" %>
+
   <% end %>
-    <%= link_to "Advanced Search", new_task_path, :class=>"white float_left indent fine_print_inverted", :id => "white_link" %>
 </div>
 <div class="margined" style="width:1090px; margin:auto auto">
   <div class="text_box padded narrow_margined float_left ">
-    <h3 id="heading1">Welcome to Crowd Assistant</h3>
+    <h3 id="heading1">Create Tasks</h3>
     <div id="indent">
-      <h5 id="heading2">Let the world work for you</h5>
-      <h4 id="heading2"><%=@welcome_message%></h4>
-      <% if current_user.nil? == false %>
-        <%= link_to '- View User Profile', user_path, :class=>"link" %>
-        <br>
-        <%= link_to '- View Tasks', tasks_path, :class=>"link" %>
+      <p>Type in anything you want, from restaurant
+      advice to math questions, and let the crowd work for you.
+       <% if current_user %>
+        Click the link below to customize your task options.<br/>
+        <%= link_to "- Create Task", new_task_path, :class=>"link", :id => "white_link" %>
       <% end %>
+
     </div>
   </div>
   <div class="text_box padded narrow_margined float_left ">
-    <h3 id="heading1">Create Tasks</h3>
+    <h3 id="heading1">Send an Email</h3>
     <div id="indent">
-      <p>Type in anything you want, from restaurant<br>
-      advice to math questions, and let the crowd work for you.
-      Click link below to get started!</p>
-      <% if current_user.nil? == false %>
-        <%= link_to '- View Tasks', tasks_path, :class=>"link" %>
-      <% end %>
+      <p>Going to a website may be a hassle, if you need something done while you're on the go.  Send us a quick email at <a class="link" href="mailto:CrowdAssistant@gmail.com">CrowdAssistant@gmail.com</a>, and we'll let you know when it's done.<br>
+      </p>
+      
     </div>
   </div>
   
@@ -41,11 +41,12 @@
     <h3 id="heading1">Create Your Profile</h3>
     <div id="indent">
       <p>Set your likes, dislikes, contact information, or basically
-      anything you think the crowd should know.
-      Click the link below to get started</p>
-      <% if current_user.nil? == false %>
+      anything you think the crowd should know. 
+      <% if current_user %>
+        Click the link below to get started.<br/>
         <%= link_to '- View User Profile', user_path, :class=>"link" %>
       <% end %>
+    </p>
     </div>
   </div>
   

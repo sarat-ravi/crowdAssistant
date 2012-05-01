@@ -48,7 +48,6 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    p "were inside the create task method of the tasksd comtroller"
     if not current_user
       session[:instructions] = params[:task][:instructions]
       redirect_to "/auth/facebook" and return
@@ -64,16 +63,11 @@ class TasksController < ApplicationController
     @task.answer = nil
     @task.instructions = params[:task][:instructions]
     @task.fields = params[:task][:fields]
-    p @task.path
-    p "--------------------------------__"
     if @task.path
       @task.resource = request.host_with_port + "/" + @task.path
     else
       @task.resource = params[:task][:resource]
     end
-    p request.host_with_port + "/" + @task.path
-    p @task.resource
-
     #these are more complicated tasks that can crash
     #if params are null, so if any problems, make them default
     begin
@@ -87,8 +81,6 @@ class TasksController < ApplicationController
     end
 
     @task.handle_null_params
-
-    p @task
 
     respond_to do |format|
       if @task.save

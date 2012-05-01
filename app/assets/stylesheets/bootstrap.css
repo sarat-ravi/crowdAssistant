@@ -117,7 +117,7 @@ body {
   background-color: #ffffff;
 }
 a {
-  color: #ffffff;
+  color: #000;
   text-decoration: none;
 }
 a:hover {
@@ -3645,7 +3645,6 @@ a.thumbnail:hover {
 .links {
   background:#ffffff;
   padding:20px;
-
 }
 
 .dark_shadow {

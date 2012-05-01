@@ -11,7 +11,7 @@ describe SessionsController do
 				User.stub!(:create_with_omniauth).with(hash).and_return(u)
 		    	post :create, {:provider => "facebook"}
 				session[:user_id].should eq(u.id)
-				response.should redirect_to("/user")
+				response.should redirect_to("/")
       		end
     	end
     
@@ -25,7 +25,7 @@ describe SessionsController do
 
 		    	post :create, {:provider => "facebook"}
 				session[:user_id].should eq(u.id)
-				response.should redirect_to("/user")
+				response.should redirect_to("/")
     		end
 		end
 	end

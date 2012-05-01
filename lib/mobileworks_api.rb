@@ -67,7 +67,7 @@ class MobileworksApi
   end
 
   def self.get_response(request)
-
+    request.gsub(/\\|'/) { |c| "\\#{c}" }
     response = %x(curl -s #{request})
     return response
   end

@@ -18,7 +18,7 @@
       </a>
       <a class="brand" href="/">Crowd Assistant</a>
       <div class="" style="">
-        <ul class="nav" style="margin-top:15px;">
+        <ul class="nav" style="margin-top:8px;">
           <li class="float_left"><a href="<%= root_path %>">Home</a></li>
           <% if current_user %>
             <li><a href="<%= tasks_path %>">Tasks</a></li>
@@ -26,7 +26,7 @@
           <% else %>
           <% end %>
           <%# if not (flash[:error].nil? and flash[:notice].nil?) %>
-          <% if true %>
+          <% if (flash[:error] or flash[:notice]) %>
             <div style="margin-top:7px;" class="thin_light_well float_left thin_padded margin_left">
               <div class="float_left narrow_margin_left" style="">
                 <div class="fine_print" id="flash_error"><%= flash[:error] %></div>
@@ -44,7 +44,8 @@
             Signed in as <%= link_to current_user.name, "/user", :class=>"paragraph"%>!
             <%= link_to "Sign Out", signout_path, :class =>"paragraph" %>
         <% else %>
-          <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook", :id => "fb_button") %> <% end %>
+          <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook", :id => "fb_button") %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -59,8 +60,20 @@
   </div>
 <% end %>
 <div class="centered_vertically">
-  <p class="fineprint">© 2012 </p>
+  <p class="fineprint"></p>
 </div>
-</div>
+<% if false %>
+  <div id="footer-container">
+    <footer>
+  <hr />
+  <a class ="link" href="/about">About CrowdAssistant</a> | 
+  <a class ="link" href="/contact">Contact Us</a> | 
+  <a class ="link" href="/team">Meet the Team</a> | 
+  <a class ="link" href="/help">FAQ</a>
+  <br />
+  © 2012
+    </footer>
+  </div>
+<% end %>
 </body>
 </html>

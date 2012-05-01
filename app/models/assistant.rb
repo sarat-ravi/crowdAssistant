@@ -12,7 +12,7 @@ class Assistant < ActiveRecord::Base
     else
       #if wolfram succeeded, then what?
       #are we going to save these results anywhere?
-      puts "wolfram can answer this"
+      #puts "wolfram can answer this"
       #task.mob_task_id = "wolfram" #-----------------------------------------O
       #task.delete
       #add_wolfram_attrs_for(task)
@@ -28,7 +28,7 @@ class Assistant < ActiveRecord::Base
   def self.update_status_for(task)
     if wolfram_succeeded_for(task) 
       #redirect to some page that displays wolfram results?
-      puts "lol its a wolfram task. Don't know how to retrieve it yet =D"
+      #puts "lol its a wolfram task. Don't know how to retrieve it yet =D"
     else
       self.retrieve_task(task)
     end
@@ -60,6 +60,8 @@ class Assistant < ActiveRecord::Base
   def self.retrieve_task(task)
     response = MobileworksApi.retrieve_task(task)
     raise "response from mobileworks is nil. Failed to retrieve task..." if response.nil?
+    original = task.status
+    newStat = response["status"]
     if task.status != response["status"]
       #UserMailer.task_finished(task).deliver
       # This line is commented because we didn't want to spam emails through GMail
@@ -77,7 +79,11 @@ class Assistant < ActiveRecord::Base
       end
       task.answer = task.answer.strip()
     end
+   # DataFile.delete(task.path)
     task.save!
+    if original != newStat
+      UserMailer.task_finished(task).deliver
+    end
   end
   def self.update_all
     tasks = Task.find(:all, :conditions => ["status NOT IN (?)", ["invalid", "complete", "done"]])

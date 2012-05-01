@@ -40,7 +40,6 @@ describe TasksController do
       it "creates a new Task" do
         #a = Assistant.new
         Assistant.any_instance.stub(:handle).and_return(nil)
-
         expect {
           post :create, {:task => {:instructions => "instr", :fields=>'[{"Answer":"t"}]', :resource => "www.google.com", :resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session
         }.to change(Task, :count).by(1)
