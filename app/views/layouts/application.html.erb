@@ -18,22 +18,22 @@
       </a>
       <a class="brand" href="/">Crowd Assistant</a>
       <div class="" style="">
-        <ul class="nav" style="margin-top:8px;">
-          <li class="float_left"><a href="<%= root_path %>">Home</a></li>
+        <ul class="nav" style="margin-top:10px;">
+          <div id="heading2" style="font-size:20px;" class="float_left narrow_margined"><a style="color:#333333;" href="<%= root_path %>">Home</a></div>
           <% if current_user %>
-            <li><a href="<%= tasks_path %>">Tasks</a></li>
-            <li><a href="<%= user_path %>">Profile</a></li>
+            <div id="heading2" style="font-size:20px;" class="float_left narrow_margined"><a style="color:#333333;" href="<%= tasks_path %>">Tasks</a></div>
+            <div id="heading2" style="font-size:20px;" class="float_left narrow_margined"><a style="color:#333333;" href="<%= user_path %>">Profile</a></div>
           <% else %>
           <% end %>
           <%# if not (flash[:error].nil? and flash[:notice].nil?) %>
           <% if (flash[:error]) %>
-              <div style="margin-top:7px;" class="thin_light_well red_background float_left thin_padded margin_left">
-                <div class="fine_print black" id="flash_error"><%= flash[:error] %></div>
+              <div style="margin-top:0px;" class="alert alert-error float_left thin_padded margin_left">
+                <div class="" id="flash_error"><strong><%= flash[:error] %></strong></div>
             </div>
           <% end %>
           <% if (flash[:notice]) %>
-              <div style="margin-top:7px;" class="thin_light_well yellow_background float_left thin_padded margin_left">
-                <div class="fine_print" id="flash_notice"><%= flash[:notice] %></div>
+              <div style="margin-top:0px;" class="alert alert-info float_left thin_padded margin_left">
+                <div class="" id="flash_notice"><strong><%= flash[:notice] %></strong></div>
             </div>
           <% end %>
         </ul>
