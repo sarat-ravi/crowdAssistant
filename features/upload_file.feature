@@ -10,13 +10,15 @@ Background: user exists
   |name     |
   |John     |
 
-@wip
+@javascript
 Scenario: upload a file
-  Given I am currently on the home page
-  And I press "Upload File"
-  And I select "businesscard.jpg"
-  Then I should be on the home page
-  And I should see "businesscard.jpg"
+  Given I am on the home page
+  And I upload a file
+  And I fill in "task_bar" with "This is a file"
+  And I press "Create Task"
+  Then I should be on the first task page
+  And I should see "This is a file"
+  And I should see "robots.txt"
 
 @wip
 Scenario: send the file as a resource

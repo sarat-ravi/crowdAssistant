@@ -9,7 +9,7 @@
     <% end %>  
     <%= f.submit "Create Task", :class=> "btn btn-primary btn-large" %><br />
     <div class="paragraph_inverted" id="indent">
-    Upload File (Optional) <%= f.file_field :path %> 
+    Upload File (Optional) <%= f.file_field :path, :id=>"path", :name => "path", :label =>"path" %> 
     </div>
         <%= link_to "Advanced Task", new_task_path, :class=>"white indent fine_print_inverted", :id => "white_link" %>
 

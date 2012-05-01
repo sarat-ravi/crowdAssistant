@@ -62,9 +62,9 @@ class TasksController < ApplicationController
       redirect_to "/auth/facebook" and return
     end
     session[:instructions] = nil
-    @task = Task.new(params[:path])
-    if params[:task][:path]
-      path = DataFile.save(params[:task])
+    @task = Task.new(:path => params[:path])
+    if params[:path]
+      path = DataFile.save(params)
       @task.path = path
     end
     @task.user_id = current_user.id

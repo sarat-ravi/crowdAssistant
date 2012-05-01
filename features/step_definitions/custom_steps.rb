@@ -1,5 +1,9 @@
 # Add a declarative step here for populating the DB with tasks.
 
+When /^I upload a file$/ do
+  attach_file("path", File.join(Rails.root, 'public', 'robots.txt'))
+end
+
 And /^the task is completed$/ do
   task = Task.find_by_status("completed")
   UserMailer.task_finished(task).deliver
@@ -7,7 +11,6 @@ end
 
 And /^I receive an email of a task$/ do
   UserMailer.incoming_task.deliver
-  p "test"
 end
 
 Given /user exists/ do |user_table|

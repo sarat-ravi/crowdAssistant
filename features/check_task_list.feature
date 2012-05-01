@@ -31,17 +31,14 @@ Scenario: see all the tasks
 Scenario: see the status associated with each of the tasks 
  Given I am currently on the tasks page
  Then I should see "Listing tasks"
- And I should see "task1 completed"
- And I should see "task2 completed"
- And I should see "task3 not started"
- And I should see "task4 completed"
- And I should see "task5 pending"
+ And I should see "Status: completed Task: task1"
+ And I should see "Status: completed Task: task2"
+ And I should see "Status: not started Task: task3"
+ And I should see "Status: completed Task: task4"
+ And I should see "Status: pending Task: task5"
 
- And I should not see "task1 not started"
- And I should not see "task2 pending"
- And I should not see "task3 completed"
- And I should not see "task4 not started"
- And I should not see "task5 completed"
-
-
-
+ And I should not see "Status: not started Task: task1"
+ And I should not see "Status: pending Task: task2"
+ And I should not see "Status: completed Task: task3"
+ And I should not see "Status: not started Task: task4"
+ And I should not see "Status: completed Task: task5"

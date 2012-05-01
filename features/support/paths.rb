@@ -29,6 +29,9 @@ module NavigationHelpers
     when /^the user\s?page$/
       '/user'
 
+    when /^the first task page$/
+      '/tasks/1'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
