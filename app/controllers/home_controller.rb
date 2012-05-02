@@ -11,7 +11,11 @@ class HomeController < ApplicationController
     @navbar_image_url = view_context.image_path('clean_textile.png') 
 
     @task = Task.new
-
+  end
+  
+  def error
+  	flash[:error] = "Authentication Error"
+  	redirect_to :action=>"index"
   end
 
 end

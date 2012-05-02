@@ -8,6 +8,7 @@ CrowdAssistant::Application.routes.draw do
   resources :tasks
 
   match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/auth/failure', :to => 'home#error'
   match '/signout', :to => "sessions#destroy", :as => :signout
   match '/user', :to => "users#index", :as => :user
   match '/profile', :to => "profiles#index", :as => :profile
@@ -15,6 +16,7 @@ CrowdAssistant::Application.routes.draw do
   match '/profile/update', :to=>"profiles#update", :as => :update_profile
   match '/tasks', :to => "tasks#index", :as => :tasks
   match '/payment', :to => "payments#index", :as => :payment
+
 
   resources :assistants
 

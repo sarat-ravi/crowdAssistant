@@ -42,7 +42,7 @@
       <div style="margin-top:17px; float:right">
         <% if current_user %>
             Signed in as <%= link_to current_user.name, "/user", :class=>"paragraph"%>!
-            <%= link_to "Sign Out", signout_path, :class =>"paragraph" %>
+            <%= link_to "Sign Out", signout_path, :class =>"paragraph", :id=>"signout" %>
         <% else %>
           <%= link_to(image_tag("/images/facebook_login_button.png", :alt=>"Login with Facebook"), "/auth/facebook", :id => "fb_button") %>
         <% end %>
