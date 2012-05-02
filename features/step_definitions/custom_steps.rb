@@ -43,7 +43,7 @@ Given /I am currently on the tasks page/ do
   visit path_to('the tasks page')
 end
 
-Given /This feautre is pending .*/ do
+Given /This feature is pending .*/ do
   pending #
 end
 

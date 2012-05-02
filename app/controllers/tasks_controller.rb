@@ -109,7 +109,7 @@ class TasksController < ApplicationController
           #format.html { redirect_to '/result/index.html', notice: 'Wolfram can answer this question.' }
         end
         current_user.update_attributes(:balance => current_user.balance - 15)
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to @task, notice: 'Task was created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }
