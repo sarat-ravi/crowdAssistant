@@ -5,8 +5,7 @@ Feature: Login with facebook
   I want to login with facebook credentials
 
   Scenario: click on login button
-  	Given This feature is pending due to testing of external site (Facebook's Oauth)
-
+    Given This feature is pending due to testing of external site (Facebook's Oauth)
     #Given I am on the home page
-    #When I follow "fb_button"
+    #Wdjflkjen I follow "fb_button"
     #Then I should be on the user page
