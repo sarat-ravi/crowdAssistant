@@ -18,6 +18,13 @@ class WolframalphaApi
   def self.get_response(query)
     #do some curl thing here
     @api_url = self.get_api_url(query) 
+    p "----------------------------------------------------------------"
+    p "----------------------------------------------------------------"
+    p "API URL: " + @api_url.to_s
+    p "----------------------------------------------------------------"
+    p "----------------------------------------------------------------"
+    #debugger
+
     #puts "api_url: "
     #puts @api_url.to_s
     @response = %x(curl -s #{@api_url})
@@ -54,9 +61,9 @@ class WolframalphaApi
   def self.get_api_url(query)
 
     @appid = "95PVXL-VJH3UW9ATT"
-    newQ = query.gsub(/\\|'|"/) { |c| "" }
-    newQ = URI.escape(newQ)
-    @api_url = "'http://api.wolframalpha.com/v2/query?input=#{newQ}&format=html&appid=#{@appid}'"
+    newquery = query.gsub(/\\|'|"/) { |c| "" }
+    newquery = URI.escape(newquery)
+    @api_url = "'http://api.wolframalpha.com/v2/query?input=#{newquery}&format=html&appid=#{@appid}'"
     return @api_url
 
   end
@@ -75,7 +82,8 @@ class WolframalphaApi
     #<a .*?>*<\/a>
     #href=".*?"
     #results = results.map {|result| result.gsub!(/\<a .*?\>*\<\/a\>/,"")}
-    results = results.map {|result| result.gsub!(/href=".*?"/,"href='#'")}
+    #debugger
+    results = results.map {|result| result.gsub(/href=".*?"/,"href='#'")}
     results = results.map {|result| result ||= ""}
     #debugger
     return results
