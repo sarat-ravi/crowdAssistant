@@ -11,6 +11,8 @@ class MobileworksApi
 
     filtered_hash["instructions"] = task.instructions
     filtered_hash["instructions"].gsub!("'","")
+    filtered_hash["instructions"].gsub!("\"","")
+
     filtered_hash["fields"] = task.fields
     filtered_hash["resource"] = task.resource
     filtered_hash["resourcetype"] = task.resourcetype
