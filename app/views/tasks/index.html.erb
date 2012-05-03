@@ -15,7 +15,7 @@
       <% if Assistant.wolfram_succeeded_for(task) %>
         <p class="paragraph"><%= "See Wolfram Results Page" %></p>
       <% else %>
-        <p class="paragraph"><%= task.answer %></p>
+        <p class="paragraph"><%= truncate(task.answer, :length =>125 %></p>
       <% end %>
     </div>
   </div>
