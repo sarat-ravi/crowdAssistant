@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
     #p "Entered Create"
   	amount = params[:amount].to_i
     if amount <= 50
-      flash[:error] = "Please enter a number greater than 50c"
+      flash[:error] = "Minimum amount is 50"
       redirect_to payment_path
     else
       begin
@@ -30,7 +30,7 @@ class PaymentsController < ApplicationController
             format.json { render json: user_path, status: :created, location: user_path }
         end
       rescue
-        flash[:error] = "There was an error processing your card"
+        flash[:error] = "Card Rejected"
         redirect_to payment_path
       end
     end
