@@ -10,6 +10,7 @@ class MobileworksApi
     filtered_hash={}
 
     filtered_hash["instructions"] = task.instructions
+    filtered_hash["instructions"].gsub!("'","")
     filtered_hash["fields"] = task.fields
     filtered_hash["resource"] = task.resource
     filtered_hash["resourcetype"] = task.resourcetype
@@ -30,13 +31,17 @@ class MobileworksApi
     begin
       query = "--data '" + task_hash_json +
         "' https://sandbox.mobileworks.com/api/v2/task/ -u CrowdAssistant:CrowdAss"
+      p query
       query = query.gsub("\\","")
       query = query.gsub("\"[","[")
       query = query.gsub("]\"","]")
+      p query
       if query.match("instructions\":\"\"")
         query.gsub!("instructions\":\"\"", "instructions\":\"Unrecognized Task\"")
       end
       response = get_response(query)
+      p response
+      p query
       hash_response = JSON.parse(response)
       hash_response["Location"] = hash_response["Location"].gsub("http://","https://")
  #     p hash_response
