@@ -7,7 +7,7 @@
   <% else %>
   <div class="alert alert-error rounded padded margined float_left task_well" style="box-shadow:0 0 10px #cc0000">
   <% end %>
-    <p id="heading1" style="font-size:24px;">Status: <%= task.status %></p>
+    <p id="heading1" style="font-size:24px;">Status: <%= task.status.titleize %></p>
     <p id="heading1" style="font-size:17px;">Task: <%= task.instructions %></p>
     <%= link_to 'Show', task %>
     <div class="answer_well well padded">
@@ -15,7 +15,7 @@
       <% if Assistant.wolfram_succeeded_for(task) %>
         <p class="paragraph"><%= "See Wolfram Results Page" %></p>
       <% else %>
-        <p class="paragraph"><%= truncate(task.answer, :length =>125 %></p>
+        <p class="paragraph"><%= truncate(task.answer, :length =>125) %></p>
       <% end %>
     </div>
   </div>

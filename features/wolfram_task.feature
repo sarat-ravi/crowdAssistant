@@ -18,7 +18,7 @@ Scenario: submit a job through Wolfram|alpha from tasks page
   Then I should be sent to the task page with id "1"
   And I should see "Decimal approximation"
   And I should see "pi"
-  And I should see "done"
+  And I should see "Done"
 
 Scenario: submit a job through Wolfram|alpha from home page 
   Given I am on the home page
@@ -28,5 +28,5 @@ Scenario: submit a job through Wolfram|alpha from home page
   And I should see "Value"
   And I should see "Interpretation"
   And I should see "planks constant"
-  And I should see "done"
+  And I should see "Done"
 
