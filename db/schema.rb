@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120430035402) do
+ActiveRecord::Schema.define(:version => 20120503005103) do
 
   create_table "assistants", :force => true do |t|
     t.string   "type"
@@ -46,12 +46,12 @@ ActiveRecord::Schema.define(:version => 20120430035402) do
     t.integer  "user_id"
     t.datetime "task_date"
     t.string   "status"
-    t.string   "answer"
+    t.text     "answer",       :limit => 255
     t.string   "resource"
     t.string   "resourcetype"
-    t.integer  "priority",     :default => 1
-    t.string   "workflow",     :default => "p"
-    t.integer  "redundancy",   :default => 2
+    t.integer  "priority",                    :default => 1
+    t.string   "workflow",                    :default => "p"
+    t.integer  "redundancy",                  :default => 2
     t.string   "instructions"
     t.string   "fields"
     t.string   "mob_task_id"
