@@ -13,8 +13,7 @@ describe MobileworksApi do
 
       taskUri = "https://work.mobileworks.com/api/v2/task/1/" 
       taskUriJson = '{"Location":"' + taskUri + '"}'
-      MobileworksApi.stub(:get_response).and_return(taskUriJson)
-
+      MobileworksApi.stub!(:get_response).and_return(taskUriJson)
       hash_response = MobileworksApi.post_task(@task)
 
       task_uri = hash_response["Location"]
@@ -39,7 +38,7 @@ describe MobileworksApi do
                                                                                                           "resource_url":"rurl",
                                                                                                           "timeCreated":"tcreated",
                                                                                                           "timeFinished":"tfinished"}'
-      MobileworksApi.stub(:get_response).and_return(resp)
+      MobileworksApi.stub!(:get_response).and_return(resp)
       @task.mob_task_id = @task.mob_task_id.gsub("http:", "https:")
       @task.save!
       response_hash = MobileworksApi.retrieve_task(@task)

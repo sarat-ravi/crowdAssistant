@@ -56,9 +56,16 @@ describe TasksController do
   end
 
   describe "POST create" do
+    before(:each) do
+      taskUri = "https://work.mobileworks.com/api/v2/task/1/" 
+      taskUriJson = '{"Location":"' + taskUri + '"}'
+      MobileworksApi.stub!(:get_response).and_return(taskUriJson)
+      Assistant.stub!(:handle).and_return(nil)
+    end
     describe "with valid params" do
       it "creates a new Task" do
         #a = Assistant.new
+
         Assistant.any_instance.stub(:handle).and_return(nil)
         expect {
           post :create, {:task => {:instructions => "instr", :fields=>'[{"Answer":"t"}]', :resource => "www.google.com", :resourcetype => "Link", :workflow => "Parallel", :redundancy => "2"}}, valid_session

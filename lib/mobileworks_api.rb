@@ -33,17 +33,13 @@ class MobileworksApi
     begin
       query = "--data '" + task_hash_json +
         "' https://sandbox.mobileworks.com/api/v2/task/ -u CrowdAssistant:CrowdAss"
-      p query
       query = query.gsub("\\","")
       query = query.gsub("\"[","[")
       query = query.gsub("]\"","]")
-      p query
       if query.match("instructions\":\"\"")
         query.gsub!("instructions\":\"\"", "instructions\":\"Unrecognized Task\"")
       end
       response = get_response(query)
-      p response
-      p query
       hash_response = JSON.parse(response)
       hash_response["Location"] = hash_response["Location"].gsub("http://","https://")
  #     p hash_response
