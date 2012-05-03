@@ -69,8 +69,15 @@ class WolframalphaApi
 
   end
   def self.extract_html(results)
-    results = results.map {|result| result.to_s.html_safe}
+    results = results.map {|result| result.to_s}
     results = results.map {|result| result[9..result.length-4]}
+    prev = results
+    #<a .*?>*<\/a>
+    #href=".*?"
+    #results = results.map {|result| result.gsub!(/\<a .*?\>*\<\/a\>/,"")}
+    results = results.map {|result| result.gsub!(/href=".*?"/,"href='#'")}
+    results = results.map {|result| result ||= ""}
+    #debugger
     return results
 
   end
