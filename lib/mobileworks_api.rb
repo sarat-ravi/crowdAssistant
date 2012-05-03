@@ -33,6 +33,9 @@ class MobileworksApi
       query = query.gsub("\\","")
       query = query.gsub("\"[","[")
       query = query.gsub("]\"","]")
+      if query.match("instructions\":\"\"")
+        query.gsub!("instructions\":\"\"", "instructions\":\"Unrecognized Task\"")
+      end
       response = get_response(query)
       hash_response = JSON.parse(response)
       hash_response["Location"] = hash_response["Location"].gsub("http://","https://")

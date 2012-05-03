@@ -39,7 +39,6 @@ class Assistant < ActiveRecord::Base
   end
   
   def self.ask_wolfram(task)
-    
     query = task.instructions
     results = WolframalphaApi.post_query(query)
     return results

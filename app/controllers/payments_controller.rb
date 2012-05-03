@@ -26,7 +26,7 @@ class PaymentsController < ApplicationController
         @payment = Payment.create(:user_id => current_user.id, :amount => amount)
         current_user.update_attributes(:balance => current_user.balance + amount)
         respond_to do |format|
-            format.html { redirect_to user_path, notice: 'Card was successfully charged.' }
+            format.html { redirect_to user_path, notice: 'Card was charged.' }
             format.json { render json: user_path, status: :created, location: user_path }
         end
       rescue

@@ -5,11 +5,8 @@ class WolframalphaApi
   def self.post_query(query)
     
     #response = self.get_response(query)
-
-
     @xml_response = self.get_response(query)
     @xml_response = self.validate_response(@xml_response)
-
     if @xml_response
       @xml_response = @xml_response.xpath("//markup")
       @xml_response = self.remove_tags(@xml_response, "<markup>")
@@ -57,15 +54,14 @@ class WolframalphaApi
   def self.get_api_url(query)
 
     @appid = "95PVXL-VJH3UW9ATT"
-    query.gsub!(/\\|'|"/) { |c| "" }
-    query = URI.escape(query)
-    @api_url = "'http://api.wolframalpha.com/v2/query?input=#{query}&format=html&appid=#{@appid}'"
+    newQ = query.gsub(/\\|'|"/) { |c| "" }
+    newQ = URI.escape(newQ)
+    @api_url = "'http://api.wolframalpha.com/v2/query?input=#{newQ}&format=html&appid=#{@appid}'"
     return @api_url
 
   end
 
   def self.remove_tags(results, tag)
-
     tag_len = tag.length
     results = results.map {|result| result.to_s}
     results = results.map {|result| result[tag_len..result.length-tag_len-2]}
